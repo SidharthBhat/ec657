@@ -37,6 +37,10 @@ public class PauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         Save();
+        pauseMenuUI.SetActive(false);
+        crosshair.SetActive(true);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
         SceneManager.LoadScene(0);
     }
 
