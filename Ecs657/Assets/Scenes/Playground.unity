@@ -813,7 +813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25678
+  m_Name: pb_Mesh25146
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3121,6 +3121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6017612084703524904, guid: 7b624846e73c0fb44ba5d561e5d49897, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6920852800394686774, guid: 7b624846e73c0fb44ba5d561e5d49897, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.68
@@ -3178,10 +3182,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player for eecs
       objectReference: {fileID: 0}
-    - target: {fileID: 7731616652672688884, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 8169690085890402992, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.71855
@@ -3221,6 +3221,18 @@ PrefabInstance:
     - target: {fileID: 8169690085890402992, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681079434497079773, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681079434497079773, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681079434497079773, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

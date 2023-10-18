@@ -4,47 +4,36 @@ using UnityEngine;
 
 public class ExperienceController : MonoBehaviour
 {
-    [SerializeField] private int radius;
-    [SerializeField] private Transform transform;
     [SerializeField] private int velocityMultiplier;
     [SerializeField] private bool chasingPlayer;
     [SerializeField] private GameObject player;
-    // Start is called before the first frame update
+    [SerializeField] private float bobAmplitude = 0.5f; // Adjust this value to control the bobbing amplitude
+    [SerializeField] private float bobSpeed = 2.0f; // Adjust this value to control the bobbing speed
+
+    private Vector3 initialPosition;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        initialPosition = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
-    }
-
-	private void LateUpdate()
-	{
-		if(chasingPlayer)
-		{
+        if (chasingPlayer)
+        {
             Transform character = player.transform;
             Vector3 direction = (character.position - transform.position).normalized;
-            transform.Translate(direction * Time.deltaTime * velocityMultiplier);
+            this.transform.Translate(direction * Time.deltaTime * velocityMultiplier);
         }
-	}
+    }
 
-	void OnTriggerEnter(Collider other)
-	{
-        if(other.CompareTag("Player"))
-		{
-            //player = other.gameObject;
-            chasingPlayer = true;
-        }
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
+    void OnTriggerEnter(Collider other)
+    {
         if (other.CompareTag("Player"))
         {
-            chasingPlayer = false;
+            player = other.gameObject;
+            chasingPlayer = true;
         }
     }
 }
