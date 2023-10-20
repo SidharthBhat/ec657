@@ -405,4 +405,6 @@ MonoBehaviour:
   groundCheckDimension: {x: 0.4, y: 0.5, z: 0.4}
   groundMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
+  projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
+  projSpeed: 5
