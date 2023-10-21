@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
+    [SerializeField] int damage;
     private float lastShot;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,7 @@ public class Shooting : MonoBehaviour
         actions = playerControls.Player;
     }
 
-	void Awake()
-	{
 
-    }
 	// Update is called once per frame
 	void Update()
     {
@@ -36,6 +34,7 @@ public class Shooting : MonoBehaviour
             {
                 GameObject currentprojectile = Instantiate(projectile, transform.position + transform.forward, Quaternion.identity);
                 currentprojectile.GetComponent<Rigidbody>().AddForce(transform.forward * projSpeed, ForceMode.Impulse);
+                currentprojectile.GetComponent<Projectile>().SetDamage(damage);
                 lastShot = Time.time;
             }
         }

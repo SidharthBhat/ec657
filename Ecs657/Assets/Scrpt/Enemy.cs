@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,8 +18,14 @@ public class Enemy : MonoBehaviour
     bool hasAttacked = false;
     bool canSeePlayer = false;
     bool canAttackPlayer = false;
+    [SerializeField] int damage;
+    [SerializeField] int maxHitPoints;
+    int hitPoints;
 
-
+    void Awake()
+    {
+        hitPoints = maxHitPoints;
+    }
 
     // Update is called once per frame
     void Update()
@@ -63,7 +71,7 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Wack");
+        //
     }
 
     private void ChasePlayer()
@@ -102,6 +110,22 @@ public class Enemy : MonoBehaviour
         {
             isWalkPointSet = true;
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        hitPoints -= amount;
+        if (hitPoints < 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        //add exp drop
+
+        Destroy(gameObject);
     }
 
 

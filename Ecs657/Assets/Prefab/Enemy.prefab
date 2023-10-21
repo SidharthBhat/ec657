@@ -155,4 +155,6 @@ MonoBehaviour:
   walkRange: 20
   attackRange: 5
   sightRange: 15
-  attackTimeing: 20
+  attackTiming: 5
+  damage: 5
+  maxHitPoints: 20
