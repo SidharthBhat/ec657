@@ -6,7 +6,8 @@ public class ExperienceController : MonoBehaviour
 {
     [SerializeField] private int velocityMultiplier;
     [SerializeField] private bool chasingPlayer;
-    [SerializeField] private GameObject player;
+    private GameObject player;
+    [SerializeField] private GameObject self;
     [SerializeField] private float bobAmplitude = 0.5f; // Adjust this value to control the bobbing amplitude
     [SerializeField] private float bobSpeed = 2.0f; // Adjust this value to control the bobbing speed
 
@@ -30,7 +31,12 @@ public class ExperienceController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        print(other.tag);
         if (other.CompareTag("Player"))
+        {
+            Destroy(self);
+        }
+        else if (other.CompareTag("xpPickUp"))
         {
             player = other.gameObject;
             chasingPlayer = true;

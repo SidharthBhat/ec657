@@ -19,11 +19,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     Vector3 velocity;
     bool isGrounded;
-    [SerializeField] GameObject projectile;
-    [SerializeField] float projSpeed;
-    [SerializeField] float cooldown;
-    private float lastShot;
+    [SerializeField] private bool debug;
 
+
+    void OnDrawGizmos()
+	{
+        if(!debug)
+		{
+            return;
+		}
+        Debug.DrawLine(transform.position, transform.position + transform.forward * 5, Color.red);
+	}
     void Awake()
     {
         playerControls = new PlayerInput();
@@ -44,8 +50,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Jump();
         Move();
-        Shoot();
-            
     }
 
     void Move()
@@ -73,14 +77,4 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(velocity * Time.deltaTime);
     }
 
-    void Shoot() {
-        if (actions.Shoot.IsPressed()) {
-            if (Time.time - lastShot > cooldown ){
-                GameObject currentprojectile = Instantiate(projectile, transform.position+transform.forward, Quaternion.identity);
-                currentprojectile.GetComponent<Rigidbody>().AddForce(transform.forward * projSpeed, ForceMode.Impulse);
-                lastShot = Time.time;
-            }
-        }
-    }
-    
 }

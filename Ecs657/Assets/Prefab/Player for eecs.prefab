@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 8983804069646697530}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Player
+  m_TagString: xpPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,3 +408,4 @@ MonoBehaviour:
     m_Bits: 8
   projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
   projSpeed: 5
+  cooldown: 0
