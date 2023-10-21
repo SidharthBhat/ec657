@@ -382,7 +382,7 @@
 "Assets/Scrpt/Experience Controller.cs"
 "Assets/Scrpt/Menu Scripts/LoadingScreen.cs"
 "Assets/Scrpt/Menu Scripts/MainMenu.cs"
-"Assets/Scrpt/Menu Scripts/PauseMenu.cs"
+"Assets/Scrpt/Menu Scripts/Menus.cs"
 "Assets/Scrpt/Menu Scripts/Settings.cs"
 "Assets/Scrpt/NextLevel.cs"
 "Assets/Scrpt/PlayerMovement.cs"

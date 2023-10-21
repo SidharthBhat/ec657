@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6858254932321820282}
   - component: {fileID: 8534274828367625866}
   - component: {fileID: 6639942317137476267}
+  - component: {fileID: 8282736406930089152}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -138,6 +139,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensetivity: 500
   playerBody: {fileID: 8169690085890402992}
+--- !u!114 &8282736406930089152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118251460127444468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57a0767fdcaf624389b996aa824bca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
+  projSpeed: 500
+  cooldown: 0.5
+  damage: 5
 --- !u!1 &5198314660744046597
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +302,6 @@ GameObject:
   - component: {fileID: 2531319259386789986}
   - component: {fileID: 855447370994263795}
   - component: {fileID: 1027979671246204725}
-  - component: {fileID: 9178533206727291322}
   m_Layer: 6
   m_Name: Player for eecs
   m_TagString: Player
@@ -404,7 +420,7 @@ MonoBehaviour:
   gravity: -80
   jumpHeigth: 2
   groundCheck: {fileID: 5997753914248585414}
-  groundCheckDimension: {x: 0.4, y: 0.5, z: 0.4}
+  groundCheckDimension: {x: 1, y: 0.5, z: 1}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -422,19 +438,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 50
---- !u!114 &9178533206727291322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7731616652672688884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a57a0767fdcaf624389b996aa824bca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
-  projSpeed: 500
-  cooldown: 1
-  damage: 5

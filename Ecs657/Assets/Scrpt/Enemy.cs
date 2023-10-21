@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] NavMeshAgent enemy;
     [SerializeField] Transform player;
     [SerializeField] float waitAtPoint;
+    [SerializeField] GameObject projectile;
+    [SerializeField] float projSpeed;
     [SerializeField] LayerMask groundLayer, playerLayer;
     [SerializeField] float walkRange, attackRange, sightRange;
     bool isWalkPointSet = false;
@@ -71,7 +73,9 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        //
+        GameObject currentprojectile = Instantiate(projectile, transform.position + transform.forward, Quaternion.identity);
+        currentprojectile.GetComponent<Rigidbody>().AddForce(transform.forward * projSpeed, ForceMode.Impulse);
+        currentprojectile.GetComponent<Projectile>().SetDamage(damage);
     }
 
     private void ChasePlayer()

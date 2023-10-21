@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] int maxHitPoints;
+    [SerializeField] Menus menus;
     int hitPoints;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class PlayerStats : MonoBehaviour
         hitPoints -= amount;
         if (hitPoints < 0)
         {
-            GameOver();
+            menus.GameOver();
         }   
     }
 
@@ -32,8 +33,4 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void GameOver()
-    {
-
-    }
 }

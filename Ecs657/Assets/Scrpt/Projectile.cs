@@ -32,6 +32,7 @@ public class Projectile : MonoBehaviour
         {
             collide.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
         }
+        
         Destroy(gameObject);
     } 
 
