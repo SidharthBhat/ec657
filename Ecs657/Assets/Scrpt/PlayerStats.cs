@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] int maxHitPoints;
     [SerializeField] Menus menus;
+    #region hpVariables
+    [SerializeField] int maxHitPoints;
     int hitPoints;
+	#endregion
+	#region xpVariables
+    [SerializeField] public float experienceTillNextLevel;
+    [SerializeField] public float currentExperience;
+    [SerializeField] public int level;
+    [SerializeField] public float xpNeededMultiplier;
+	#endregion
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
-       hitPoints = maxHitPoints; 
+        hitPoints = maxHitPoints;
+        level = 0;
     }
-
-    // Update is called once per frame
-    public void TakeDamage(int amount)
+    //------------------------------------------------------------------//
+	#region hpCode
+	// Update is called once per frame
+	public void TakeDamage(int amount)
     {
         hitPoints -= amount;
         if (hitPoints < 0)
@@ -32,5 +42,18 @@ public class PlayerStats : MonoBehaviour
             hitPoints = maxHitPoints;
         }
     }
-
+    #endregion;
+    //------------------------------------------------------------------//
+    #region xpCode
+    public void AddXp(float value)
+	{
+        currentExperience += value;
+        while(currentExperience > experienceTillNextLevel)
+		{
+            currentExperience -= experienceTillNextLevel;
+            experienceTillNextLevel *= xpNeededMultiplier;
+            level++;
+		}
+	}
+	#endregion
 }
