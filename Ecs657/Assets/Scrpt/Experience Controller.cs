@@ -12,17 +12,16 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] private float bobSpeed = 2.0f; // Adjust this value to control the bobbing speed
     [SerializeField] private float xp;
 
-    private Vector3 initialPosition;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        initialPosition = transform.position;
     }
 
-    public void SetXp(int value)
+    public void SetXp(float value)
 	{
         xp = value;
+        print(value);
 	}
 
     void LateUpdate()
@@ -31,13 +30,12 @@ public class ExperienceController : MonoBehaviour
         {
             Transform character = player.transform;
             Vector3 direction = (character.position - transform.position).normalized;
-            this.transform.Translate(direction * Time.deltaTime * velocityMultiplier);
+            this.transform.Translate(Time.deltaTime * velocityMultiplier * direction);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        print(other.tag);
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerStats>().AddXp(xp);

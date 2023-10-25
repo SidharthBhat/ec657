@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int maxHitPoints;
     int hitPoints;
+    [SerializeField] private float xpValue;
+    [SerializeField] GameObject eXP;
+    [SerializeField] private bool debug;
 
     void Awake()
     {
@@ -128,13 +131,17 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         //add exp drop
-
+        DropXP(xpValue);
         Destroy(gameObject);
     }
 
 
     void OnDrawGizmosSelected()
     {
+        if(!debug)
+		{
+            return;
+		}
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, walkRange);
         Gizmos.color = Color.yellow;
@@ -144,5 +151,15 @@ public class Enemy : MonoBehaviour
 
     }
 
-
+    private void DropXP(float value)
+	{
+        int numberOfXP = Random.Range(1, 5);
+        for(int i = 0; i < numberOfXP; i++)
+		{
+            float randomRange = Random.Range(0.25f,-0.25f);
+            Vector3 randomPosition = new Vector3(transform.position.x + randomRange, transform.position.y + randomRange, transform.position.z + randomRange);
+            GameObject XPDrop = Instantiate(eXP, randomPosition, Quaternion.identity);
+            XPDrop.GetComponent<ExperienceController>().SetXp(value / numberOfXP);
+		}
+	}
 }
