@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -14,13 +15,16 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float currentExperience;
     [SerializeField] public int level;
     [SerializeField] public float xpNeededMultiplier;
-	#endregion
-
-	// Start is called before the first frame update
-	void Start()
+    #endregion
+    #region uiVariables
+    [SerializeField] TMP_Text LevelUI;
+    #endregion
+    // Start is called before the first frame update
+    void Start()
     {
         hitPoints = maxHitPoints;
         level = 0;
+        LevelUI.text = "Level " + level + ": (" + Mathf.Round(currentExperience) + "/" + Mathf.Round(experienceTillNextLevel) + ")";
     }
     //------------------------------------------------------------------//
 	#region hpCode
@@ -48,12 +52,13 @@ public class PlayerStats : MonoBehaviour
     public void AddXp(float value)
 	{
         currentExperience += value;
-        while(currentExperience > experienceTillNextLevel)
+        while(currentExperience >= experienceTillNextLevel)
 		{
             currentExperience -= experienceTillNextLevel;
             experienceTillNextLevel *= xpNeededMultiplier;
             level++;
 		}
+        LevelUI.text = "Level " + level + ": (" + Mathf.Round(currentExperience) + "/" + Mathf.Round(experienceTillNextLevel) + ")"; 
 	}
 	#endregion
 	//------------------------------------------------------------------//

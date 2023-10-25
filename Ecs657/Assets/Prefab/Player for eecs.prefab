@@ -425,6 +425,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   debug: 0
+  sprintSpeed: 0
 --- !u!114 &1027979671246204725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,4 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f8cb07d25037745bc583e18bb59450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menus: {fileID: 0}
   maxHitPoints: 50
+  experienceTillNextLevel: 10
+  currentExperience: 0
+  level: 0
+  xpNeededMultiplier: 1.25

@@ -8,8 +8,6 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] private bool chasingPlayer;
     private GameObject player;
     [SerializeField] private GameObject self;
-    [SerializeField] private float bobAmplitude = 0.5f; // Adjust this value to control the bobbing amplitude
-    [SerializeField] private float bobSpeed = 2.0f; // Adjust this value to control the bobbing speed
     [SerializeField] private float xp;
 
 
@@ -21,7 +19,6 @@ public class ExperienceController : MonoBehaviour
     public void SetXp(float value)
 	{
         xp = value;
-        print(value);
 	}
 
     void LateUpdate()
