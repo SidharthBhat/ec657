@@ -388,6 +388,14 @@
 "Assets/Scrpt/PlayerMovement.cs"
 "Assets/Scrpt/Projectile.cs"
 "Assets/Scrpt/Shooting.cs"
+"Assets/Sid's Work/Scripts/Fire.cs"
+"Assets/Sid's Work/Scripts/Fireball.cs"
+"Assets/Sid's Work/Scripts/HotBarController.cs"
+"Assets/Sid's Work/Scripts/SlotController.cs"
+"Assets/Sid's Work/Scripts/Spell.cs"
+"Assets/Sid's Work/Scripts/SpellList.cs"
+"Assets/Sid's Work/Scripts/SpellStack.cs"
+"Assets/Sid's Work/TODO.cs"
 -langversion:9.0
 
 /deterministic
