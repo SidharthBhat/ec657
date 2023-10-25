@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         hitPoints = maxHitPoints;
     }
 
@@ -131,6 +132,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         //add exp drop
+        TempEnemy();
         DropXP(xpValue);
         Destroy(gameObject);
     }
@@ -162,4 +164,22 @@ public class Enemy : MonoBehaviour
             XPDrop.GetComponent<ExperienceController>().SetXp(value / numberOfXP);
 		}
 	}
+
+
+    void TempEnemy()
+    {
+        float randomZ = Random.Range(-walkRange, walkRange);
+        float randomX = Random.Range(-walkRange, walkRange);
+
+        Vector3 spawnLocation = new Vector3(200f +randomX,
+                                5f,
+                                200f +randomZ);
+
+        Instantiate(gameObject, spawnLocation, Quaternion.identity);
+        Instantiate(gameObject, spawnLocation + Vector3.one *2, Quaternion.identity);
+    }
+
+
+
+
 }

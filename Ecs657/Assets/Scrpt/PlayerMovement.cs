@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        isGrounded = Physics.CheckBox(groundCheck.position, groundCheckDimension, Quaternion.identity, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.25f, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
