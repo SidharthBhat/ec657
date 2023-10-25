@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,7 +7,8 @@ using UnityEngine;
 
 public class SpellStack : MonoBehaviour
 {
-    [SerializeField] private Spell[] stackSpells;
+    //If possible later, replace the arrays for stackSpells and stackSlots with Lists
+    [SerializeField] private Spell[] stackSpells = new Spell[5];
     [SerializeField] private GameObject[] stackSlots = new GameObject[5];
     [SerializeField] private Transform slotFab;
     [SerializeField] private GameObject grid;
@@ -64,16 +66,20 @@ public class SpellStack : MonoBehaviour
     {
         int index = -1;
 
-        for (int i = 0; i < stackSlots.Length; i++)
+        for (int i = 0; i < stackSpells.Length; i++)
         {
-            if (stackSlots[i].name == spell.name)
+            if (stackSpells[i] != null)
             {
-                index = i;
-                break;
+                if (stackSpells[i].spellName.Equals(spell.spellName))
+                {
+                    index = i;
+                    break;
+                }
             }
         }
+
         
-        if(index > 0)
+        if(index >= 0)
         {
             removeSpell(index);
             return true;
@@ -110,11 +116,11 @@ public class SpellStack : MonoBehaviour
                     break;
                 }
             }
+            stackIndex--;
         }
     }
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

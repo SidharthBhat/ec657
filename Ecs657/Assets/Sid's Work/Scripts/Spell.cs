@@ -27,22 +27,25 @@ public abstract class Spell : MonoBehaviour
     public int checkCombination(Spell[] spells)
     {
         bool match = true;
-        for (int i = 0; i<spells.Length; i++)
+        if(combination.Length > 0)
         {
-            if (spells[i].Equals(combination[0]))
+            for (int i = 0; i < (spells.Length - combination.Length); i++)
             {
-                match = true;
-                for(int j = 1; j<combination.Length; j++)
+                if (spells[i]!=null && spells[i].Equals(combination[0]))
                 {
-                    if (combination[j] != spells[i + j])
+                    match = true;
+                    for (int j = 1; j < combination.Length; j++)
                     {
-                        match = false;
-                        break;
+                        if (combination[j] != spells[i + j])
+                        {
+                            match = false;
+                            break;
+                        }
                     }
-                }
-                if (match)
-                {
-                    return i;
+                    if (match)
+                    {
+                        return i;
+                    }
                 }
             }
         }

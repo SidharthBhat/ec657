@@ -18,6 +18,11 @@ public class SlotController : MonoBehaviour
         SetSpell(slotSpell);
     }
 
+    public string debug()
+    {
+        return slotSpell.spellName;
+    }
+
     public void SetSpell(Spell spell)
     {
         slotSpell = spell;
