@@ -5708,7 +5708,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25290
+  m_Name: pb_Mesh25298
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021635709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a57a0767fdcaf624389b996aa824bca6, type: 3}
   m_Name: 
@@ -6213,7 +6213,7 @@ MonoBehaviour:
   combination:
   - {fileID: 2070329197}
   - {fileID: 2070329199}
-  steamProj: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
+  steamProj: {fileID: 5568284564195301289, guid: 31776161f7a82a8449613a79d3c7450f, type: 3}
   projSpeed: 50
   cooldown: 1
 --- !u!114 &2070329199
@@ -6232,7 +6232,7 @@ MonoBehaviour:
   spellName: Water
   description: Shoots ball of water. Damages and slows enemy.
   combination: []
-  waterProj: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
+  waterProj: {fileID: 4853890428918941015, guid: 169922a0e0821334c8f6b558a602cc1f, type: 3}
   projSpeed: 50
   cooldown: 1
 --- !u!1 &2102653658
@@ -8847,63 +8847,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2021635714}
   m_SourcePrefab: {fileID: 100100000, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
---- !u!1001 &5868917346104680473
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 67
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204418640394329179, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689170274625472767, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      propertyPath: m_Name
-      value: fireProj
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
 --- !u!1001 &6858071375371738443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8986,6 +8929,5 @@ SceneRoots:
   - {fileID: 1184410017}
   - {fileID: 1765629897}
   - {fileID: 3104221077615031820}
-  - {fileID: 5868917346104680473}
   - {fileID: 1129879883}
   - {fileID: 1320441085643412756}

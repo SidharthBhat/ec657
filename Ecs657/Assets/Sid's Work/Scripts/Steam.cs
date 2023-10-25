@@ -11,10 +11,10 @@ public class Steam : Spell {
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.SetPlayer(GameObject.FindGameObjectWithTag("Player"));
     }
 
-    public Steam(Sprite i, Spell[] c) : base(i, "Steam", "Shoots ball of steam. Damages and pushes enemy away.", c, GameObject.FindGameObjectWithTag("Player"))
+    public Steam(Sprite i, Spell[] c) : base(i, "Steam", "Shoots ball of steam. Damages and pushes enemy away.", c)
     {
     }
 

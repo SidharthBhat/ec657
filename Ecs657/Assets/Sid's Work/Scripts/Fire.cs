@@ -12,10 +12,10 @@ public class Fire : Spell
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.SetPlayer(GameObject.FindGameObjectWithTag("Player"));
     }
 
-    public Fire(Sprite i, Spell[] c) : base(i,"Fire","Shoots fireball. Damages and burns enemy.", c,GameObject.FindGameObjectWithTag("Player"))
+    public Fire(Sprite i, Spell[] c) : base(i,"Fire","Shoots fireball. Damages and burns enemy.", c)
     {
     }
 

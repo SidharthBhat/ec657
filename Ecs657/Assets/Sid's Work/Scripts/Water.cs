@@ -11,10 +11,10 @@ public class Water : Spell
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.SetPlayer(GameObject.FindGameObjectWithTag("Player"));
     }
 
-    public Water(Sprite i, Spell[] c) : base(i, "Water", "Shoots ball of water. Damages and slows enemy.", c, GameObject.FindGameObjectWithTag("Player")) 
+    public Water(Sprite i, Spell[] c) : base(i, "Water", "Shoots ball of water. Damages and slows enemy.", c) 
     {
     }
 

@@ -12,13 +12,17 @@ public abstract class Spell : MonoBehaviour
     public Spell[] combination;
     protected GameObject player;
 
-    public Spell(Sprite i, string sn, string d, Spell[] c, GameObject p)
+    public Spell(Sprite i, string sn, string d, Spell[] c)
     {
         icon = i;
         spellName = sn;
         description = d;
         combination = c;
-        player = p;
+    }
+
+    protected void SetPlayer(GameObject player)
+    {
+        this.player = player;
     }
 
     public abstract void Cast();

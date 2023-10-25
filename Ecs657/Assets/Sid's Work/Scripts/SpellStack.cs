@@ -122,5 +122,19 @@ public class SpellStack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)){
+            for(int i = 0;i < stackSpells.Length; i++)
+            {
+                if (stackSpells[0] != null)
+                {
+                    stackSpells[0].Cast();
+                    removeSpell(0);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
     }
 }
