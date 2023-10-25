@@ -18,12 +18,14 @@ public class PlayerStats : MonoBehaviour
     #endregion
     #region uiVariables
     [SerializeField] TMP_Text LevelUI;
+    [SerializeField] HealthBar healthbar; 
     #endregion
     // Start is called before the first frame update
     void Start()
     {
         hitPoints = maxHitPoints;
         level = 0;
+        healthbar.setMaxHealth(maxHitPoints);
         LevelUI.text = "Level " + level + ": (" + Mathf.Round(currentExperience) + "/" + Mathf.Round(experienceTillNextLevel) + ")";
     }
     //------------------------------------------------------------------//
@@ -32,7 +34,8 @@ public class PlayerStats : MonoBehaviour
 	public void TakeDamage(int amount)
     {
         hitPoints -= amount;
-        if (hitPoints < 0)
+        healthbar.setHealth(hitPoints);
+        if (hitPoints <= 0)
         {
             menus.GameOver();
         }   
@@ -41,10 +44,11 @@ public class PlayerStats : MonoBehaviour
     public void Heal(int amount)
     {
         hitPoints += amount;
-        if (hitPoints > maxHitPoints)
+        if (hitPoints >= maxHitPoints)
         {
             hitPoints = maxHitPoints;
         }
+        healthbar.setHealth(hitPoints);
     }
     #endregion;
     //------------------------------------------------------------------//

@@ -26,11 +26,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float xpValue;
     [SerializeField] GameObject eXP;
     [SerializeField] private bool debug;
-
+    [SerializeField] HealthBar healthbar;
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         hitPoints = maxHitPoints;
+        healthbar.setMaxHealth(maxHitPoints);
     }
 
     // Update is called once per frame
@@ -123,7 +124,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int amount)
     {
         hitPoints -= amount;
-        if (hitPoints < 0)
+        healthbar.setHealth(hitPoints);
+        if (hitPoints <= 0)
         {
             Die();
         }
@@ -158,8 +160,10 @@ public class Enemy : MonoBehaviour
         int numberOfXP = Random.Range(1, 5);
         for(int i = 0; i < numberOfXP; i++)
 		{
-            float randomRange = Random.Range(0.25f,-0.25f);
-            Vector3 randomPosition = new Vector3(transform.position.x + randomRange, transform.position.y + randomRange, transform.position.z + randomRange);
+            float randomRangeX = Random.Range(0.5f,-0.5f);
+            float randomRangeY = Random.Range(0.5f, -0.5f);
+            float randomRangeZ = Random.Range(0.5f, -0.5f);
+            Vector3 randomPosition = new Vector3(transform.position.x + randomRangeX, transform.position.y + randomRangeY, transform.position.z + randomRangeZ);
             GameObject XPDrop = Instantiate(eXP, randomPosition, Quaternion.identity);
             XPDrop.GetComponent<ExperienceController>().SetXp(value / numberOfXP);
 		}
