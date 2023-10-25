@@ -30,7 +30,7 @@ public class SpellStack : MonoBehaviour
             //otherwise, its added to the stack
             stackSpells[stackIndex] = spell;
             stackSlots[stackIndex] = Instantiate(slotFab, grid.transform).gameObject;
-            stackSpells[stackIndex].GetComponent<SlotController>().SetSpellInit(spell);
+            stackSlots[stackIndex].GetComponent<SlotController>().SetSpellInit(spell);
             stackIndex++;
         }
         //check if any new combos are possible
