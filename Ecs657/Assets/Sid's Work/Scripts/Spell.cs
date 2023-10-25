@@ -24,16 +24,29 @@ public abstract class Spell : MonoBehaviour
     public abstract void Cast();
 
 
-    public bool checkCombination(Spell[] spells)
+    public int checkCombination(Spell[] spells)
     {
-        foreach (Spell spell in spells)
+        bool match = true;
+        for (int i = 0; i<spells.Length; i++)
         {
-            if (!combination.Contains(spell))
+            if (spells[i].Equals(combination[0]))
             {
-                return false;
+                match = true;
+                for(int j = 1; j<combination.Length; j++)
+                {
+                    if (combination[j] != spells[i + j])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match)
+                {
+                    return i;
+                }
             }
         }
-        return true;
+        return -1;
     }
 
     // Update is called once per frame
