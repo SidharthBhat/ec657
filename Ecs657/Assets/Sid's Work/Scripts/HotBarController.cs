@@ -21,6 +21,8 @@ public class HotBarController : MonoBehaviour
     {
         //Debug.Log(spellList.GetComponent<SpellList>().spellList[0].spellName);
         spells[0]=spellList.GetComponent<SpellList>().spellList[0];
+        spells[1]=spellList.GetComponent<SpellList>().spellList[1];
+        spells[2]=spellList.GetComponent<SpellList>().spellList[2];
         //sets all slot icons to spells stored on launch if not blank
         for (int i = 0; i < spells.Length; i++)
         {

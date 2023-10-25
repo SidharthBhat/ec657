@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Fire : Spell
 {
-    [SerializeField] GameObject fireball;
+    [SerializeField] Transform fireProj;
     [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
 
@@ -21,7 +21,7 @@ public class Fire : Spell
 
     public override void Cast()
     {
-        GameObject currentprojectile = Instantiate(fireball, player.transform.position + player.transform.forward, Quaternion.identity);
+        GameObject currentprojectile = Instantiate(fireProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * projSpeed, ForceMode.Impulse);
     }
 

@@ -395,6 +395,8 @@
 "Assets/Sid's Work/Scripts/Spell.cs"
 "Assets/Sid's Work/Scripts/SpellList.cs"
 "Assets/Sid's Work/Scripts/SpellStack.cs"
+"Assets/Sid's Work/Scripts/Steam.cs"
+"Assets/Sid's Work/Scripts/Water.cs"
 "Assets/Sid's Work/TODO.cs"
 -langversion:9.0
 
