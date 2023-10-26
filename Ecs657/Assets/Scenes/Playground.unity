@@ -1318,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Next Level
       objectReference: {fileID: 0}
+    - target: {fileID: 8336166995302565120, guid: 3b10481f5f9ae8e4cb042243fc7760ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4115,6 +4119,10 @@ PrefabInstance:
     - target: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
       propertyPath: m_Name
       value: projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8188649985142788615, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
       propertyPath: m_Mass
