@@ -11,6 +11,7 @@ public class Respawn : MonoBehaviour
     {
         Debug.Log("Trigger Entered");
         if (other.CompareTag("Player"))
+        {
             player.transform.position = respawnPoint.transform.position;
         }
     }
