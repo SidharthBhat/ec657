@@ -12,7 +12,10 @@ public class Respawn : MonoBehaviour
         Debug.Log("Trigger Entered");
         if (other.CompareTag("Player"))
         {
+            CharacterController charactercontroller = player.GetComponent<CharacterController>();
+            charactercontroller.enabled = false;
             player.transform.position = respawnPoint.transform.position;
+            charactercontroller.enabled = true;
         }
     }
 }
