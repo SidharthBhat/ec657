@@ -6,45 +6,38 @@ using UnityEngine;
 
 public class HotBarController : MonoBehaviour
 {
+    //here the inputtable spells are stored, and they're added to SpellStack on input
     [SerializeField] private Transform slotFab;
-    //hotbar slots
     private SlotController[] slots = new SlotController[10];
-    //spells in hotbar
     private Spell[] spells = new Spell[10];
     [SerializeField] GameObject spellList;
-    //ref to spell stack
     [SerializeField] private SpellStack spellStack;
     [SerializeField] private GameObject grid;
 
-    // Start is called before the first frame update
     void Start()
     {
-        spells=spellList.GetComponent<SpellList>().hotbarList;
-        //Debug.Log(spellList.GetComponent<SpellList>().spellList[0].spellName);
-        //spells[0]=spellList.GetComponent<SpellList>().spellList[0];
-        //spells[1]=spellList.GetComponent<SpellList>().spellList[1];
-        //spells[2]=spellList.GetComponent<SpellList>().spellList[2];
+        spells=spellList.GetComponent<SpellList>().hotbarList; //retrieves list of spells for the hotbar from spellList
         //sets all slot icons to spells stored on launch if not blank
         for (int i = 0; i < spells.Length; i++)
         {
             if (spells[i] != null)
             {
-                slots[i] = Instantiate(slotFab, grid.transform).GetComponent<SlotController>();
-                slots[i].SetSpellInit(spells[i]);
+                slots[i] = Instantiate(slotFab, grid.transform).GetComponent<SlotController>(); //if the slot has a spell, create a SpellSlot
+                slots[i].SetSpellInit(spells[i]); //assign the new slot its corresponding spell
             }
         }
     }
 
-    void AddSpell(int slot)
+    public void AddSpell(int slot)
     {
         //add spell to spellstack
         spellStack.addSpell(spells[slot]);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //temp measure, sub with player input (playerinput broken)
+        //TEMPORARY just gets raw key input for spellcasting
+        //Only goes up to three slots, remove later for PlayInput integration
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             AddSpell(0);

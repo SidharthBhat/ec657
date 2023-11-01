@@ -11,17 +11,12 @@ public class SlotController : MonoBehaviour
     [SerializeField] private Transform iconPrefab;
     private Spell slotSpell;
 
-    // Start is called before the first frame update
     void Start()
     {
         icon = Instantiate(iconPrefab, transform).gameObject.GetComponent<Image>();
         SetSpell(slotSpell);
     }
 
-    public string debug()
-    {
-        return slotSpell.spellName;
-    }
 
     public void SetSpell(Spell spell)
     {

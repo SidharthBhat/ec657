@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+//when creating new spells, you need it to use Spell as a namespace, not MonoBehaviour. Spell already has that.
 public class Fire : Spell
 {
     [SerializeField] Transform fireProj;
     [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         base.SetPlayer(GameObject.FindGameObjectWithTag("Player"));
     }
 
+    //constructor for the spell. passes its attributes are arguments to the base Spell class
+    //this means you can copy-paste this, and sub in the new spell's classname and its attributes
+    //i is the icon, c is the combination recipe
     public Fire(Sprite i, Spell[] c) : base(i,"Fire","Shoots fireball. Damages and burns enemy.", c)
     {
     }
 
+    //overrides the abstract cast method in spell for this specific spell's behaviour
     public override void Cast()
     {
+        //for example, here Fire creates a new firebll from the prefab in fireProj, then adds forward force to it
         GameObject currentprojectile = Instantiate(fireProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * projSpeed, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
