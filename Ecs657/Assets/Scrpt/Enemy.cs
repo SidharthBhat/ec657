@@ -1,17 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] NavMeshAgent enemy;
     [SerializeField] Transform player;
     [SerializeField] float waitAtPoint;
-    [SerializeField] GameObject projectile;
-    [SerializeField] float projSpeed;
     [SerializeField] LayerMask groundLayer, playerLayer;
     [SerializeField] float walkRange, attackRange, sightRange;
     bool isWalkPointSet = false;
@@ -20,19 +16,8 @@ public class Enemy : MonoBehaviour
     bool hasAttacked = false;
     bool canSeePlayer = false;
     bool canAttackPlayer = false;
-    [SerializeField] int damage;
-    [SerializeField] int maxHitPoints;
-    int hitPoints;
-    [SerializeField] private float xpValue;
-    [SerializeField] GameObject eXP;
-    [SerializeField] private bool debug;
-    [SerializeField] HealthBar healthbar;
-    void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        hitPoints = maxHitPoints;
-        healthbar.setMaxHealth(maxHitPoints);
-    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -78,9 +63,7 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        GameObject currentprojectile = Instantiate(projectile, transform.position + transform.forward, Quaternion.identity);
-        currentprojectile.GetComponent<Rigidbody>().AddForce(transform.forward * projSpeed, ForceMode.Impulse);
-        currentprojectile.GetComponent<Projectile>().SetDamage(damage);
+        Debug.Log("Wack");
     }
 
     private void ChasePlayer()
@@ -121,31 +104,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
-    {
-        hitPoints -= amount;
-        healthbar.setHealth(hitPoints);
-        if (hitPoints <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        //add exp drop
-        TempEnemy();
-        DropXP(xpValue);
-        Destroy(gameObject);
-    }
-
 
     void OnDrawGizmosSelected()
     {
-        if(!debug)
-		{
-            return;
-		}
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, walkRange);
         Gizmos.color = Color.yellow;
@@ -154,36 +115,6 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
     }
-
-    private void DropXP(float value)
-	{
-        int numberOfXP = Random.Range(1, 5);
-        for(int i = 0; i < numberOfXP; i++)
-		{
-            float randomRangeX = Random.Range(0.5f,-0.5f);
-            float randomRangeY = Random.Range(0.5f, -0.5f);
-            float randomRangeZ = Random.Range(0.5f, -0.5f);
-            Vector3 randomPosition = new Vector3(transform.position.x + randomRangeX, transform.position.y + randomRangeY, transform.position.z + randomRangeZ);
-            GameObject XPDrop = Instantiate(eXP, randomPosition, Quaternion.identity);
-            XPDrop.GetComponent<ExperienceController>().SetXp(value / numberOfXP);
-		}
-	}
-
-
-    void TempEnemy()
-    {
-        float randomZ = Random.Range(-walkRange, walkRange);
-        float randomX = Random.Range(-walkRange, walkRange);
-
-        Vector3 spawnLocation = new Vector3(200f +randomX,
-                                5f,
-                                200f +randomZ);
-
-        Instantiate(gameObject, spawnLocation, Quaternion.identity);
-        Instantiate(gameObject, spawnLocation + Vector3.one *2, Quaternion.identity);
-    }
-
-
 
 
 }
