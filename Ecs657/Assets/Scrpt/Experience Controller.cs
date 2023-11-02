@@ -8,6 +8,7 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] private bool chasingPlayer;
     private GameObject player;
     [SerializeField] private GameObject self;
+    [SerializeField] private float xp;
     [SerializeField] private float bobAmplitude = 0.5f; // Adjust this value to control the bobbing amplitude
     [SerializeField] private float bobSpeed = 2.0f; // Adjust this value to control the bobbing speed
 
@@ -18,6 +19,11 @@ public class ExperienceController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         initialPosition = transform.position;
     }
+
+    public void SetXp(float value)
+	{
+        xp = value;
+	}
 
     void LateUpdate()
     {
@@ -31,9 +37,9 @@ public class ExperienceController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print(other.tag);
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<PlayerStats>().AddXp(xp);
             Destroy(self);
         }
         else if (other.CompareTag("xpPickUp"))
