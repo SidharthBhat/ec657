@@ -2,27 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Fireball : GenericProjectile
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Fireball(int damage, int duration, int interval) : base(damage, duration, interval)
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override IEnumerator projEffect()
     {
-        if (other.gameObject.tag.Equals("Enemy"))
+        if (duration > 0)
         {
-            //add code to reduce enemy HP and add chip damage
-            //chip damage can either be a method in Enemy, or handled by something else
-            Destroy(this.gameObject);
+            enemy.TakeDamage(1);
+            duration--;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        yield return new WaitForSeconds(interval);
     }
 }
