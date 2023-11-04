@@ -41,7 +41,6 @@ public class PlayerStats : MonoBehaviour
         }   
     }
 
-    // Sets health to be its max possible value
     public void Heal(int amount)
     {
         hitPoints += amount;

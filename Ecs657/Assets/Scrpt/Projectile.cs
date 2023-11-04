@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
         
     }
 
-    // Sets the amount of damage a projectile will do as an int
     public void SetDamage( int amount)
     {
         damage = amount;
@@ -24,7 +23,6 @@ public class Projectile : MonoBehaviour
         Invoke(nameof(DestroyProjectile), expiration);
     }
 
-    // If projectile collides with an enemy call TakeDamage
     void OnCollisionEnter(Collision collide){
         if (collide.gameObject.GetComponent<Enemy>() != null)
         {
@@ -38,7 +36,6 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     } 
 
-    // Clears Projectile
     void DestroyProjectile()
     {
         Destroy(gameObject);

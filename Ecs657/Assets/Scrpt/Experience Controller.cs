@@ -16,12 +16,10 @@ public class ExperienceController : MonoBehaviour
 
     void Start()
     {
-        // Searches for player
         player = GameObject.FindGameObjectWithTag("Player");
         initialPosition = transform.position;
     }
 
-    // Allows for a variable quantity of exp to be dropped
     public void SetXp(float value)
 	{
         xp = value;
@@ -29,7 +27,6 @@ public class ExperienceController : MonoBehaviour
 
     void LateUpdate()
     {
-        // Follows player
         if (chasingPlayer)
         {
             Transform character = player.transform;
@@ -38,7 +35,6 @@ public class ExperienceController : MonoBehaviour
         }
     }
 
-    // Detects collision with player and allows them to gain exp
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
