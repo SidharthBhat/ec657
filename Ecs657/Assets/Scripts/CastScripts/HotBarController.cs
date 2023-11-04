@@ -31,24 +31,14 @@ public class HotBarController : MonoBehaviour
     public void AddSpell(int slot)
     {
         //add spell to spellstack
-        spellStack.addSpell(spells[slot]);
+        if (spells[slot] != null)
+        {
+            spellStack.addSpell(spells[slot]);
+        }
     }
 
     void Update()
     {
-        //TEMPORARY just gets raw key input for spellcasting
-        //Only goes up to three slots, remove later for PlayInput integration
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            AddSpell(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            AddSpell(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            AddSpell(2);
-        }
+        
     }
 }

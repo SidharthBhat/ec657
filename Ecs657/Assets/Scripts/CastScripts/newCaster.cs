@@ -6,14 +6,13 @@ public class newCaster : MonoBehaviour
 {
     public PlayerInput playerControls;
     private PlayerInput.PlayerActions actions;
-    [SerializeField] GameObject projectile;
-    [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
-    [SerializeField] int damage;
     private float lastShot;
 
-    [SerializeField] SpellStack spellStack;
+    SpellStack spellStack;
     [SerializeField] GameObject sStack;
+    HotBarController hotBarController;
+    [SerializeField] GameObject hotBar;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +21,7 @@ public class newCaster : MonoBehaviour
         playerControls.Enable();
         actions = playerControls.Player;
         spellStack = sStack.GetComponent<SpellStack>();
+        hotBarController = hotBar.GetComponent<HotBarController>();
     }
 
     // Update is called once per frame
@@ -30,11 +30,14 @@ public class newCaster : MonoBehaviour
         if (actions.Shoot.IsPressed()) {
             if (Time.time - lastShot > cooldown)
             {
-                GameObject currentprojectile = Instantiate(projectile, transform.position + transform.forward, Quaternion.identity);
-                currentprojectile.GetComponent<Rigidbody>().AddForce(transform.forward * projSpeed, ForceMode.Impulse);
-                currentprojectile.GetComponent<Projectile>().SetDamage(damage);
+                spellStack.castStack();
                 lastShot = Time.time;
             }
+        }
+        if (actions.Hotbar.WasPressedThisFrame())
+        {
+            int slot = (int) actions.Hotbar.ReadValue<float>();
+            hotBarController.AddSpell(slot-1);
         }
     }
 }

@@ -489,6 +489,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+--- !u!1 &543060392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494244568722708589, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+  m_PrefabInstance: {fileID: 1429671067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &673139566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1011,6 +1016,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8169690085890402992, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
   m_PrefabInstance: {fileID: 4250900171998500304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &982575753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3118251460127444468, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+  m_PrefabInstance: {fileID: 4250900171998500304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &982575759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982575753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff47b04663da2de4590b451c1430d208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0.33
+  sStack: {fileID: 543060392}
+  hotBar: {fileID: 1162094044}
 --- !u!1 &993986556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1198,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+--- !u!1 &1162094044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2182146510291145126, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+  m_PrefabInstance: {fileID: 1429671067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1167127660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1791,7 +1821,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh39476
+  m_Name: pb_Mesh25440
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4665,7 +4695,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8169690085890402992, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
       insertIndex: 0
       addedObject: {fileID: 726028539}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3118251460127444468, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 982575759}
   m_SourcePrefab: {fileID: 100100000, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
 --- !u!1001 &6858071375371738443
 PrefabInstance:
