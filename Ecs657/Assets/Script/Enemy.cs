@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
+        //initialises enemy
         player = GameObject.FindGameObjectWithTag("Player").transform;
         hitPoints = maxHitPoints;
         healthbar.setMaxHealth(maxHitPoints);
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
         canSeePlayer = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         canAttackPlayer = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
+        //detects player to attack or follow
         if (canSeePlayer)
         {
             if(canAttackPlayer)
@@ -56,6 +58,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // attacks player with a delay between attacks
     private void AttackPlayer()
     {
         enemy.SetDestination(transform.position);
@@ -70,6 +73,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // checks if attacked recently
     private void ResetAttack()
     {
         hasAttacked = false;
@@ -82,11 +86,13 @@ public class Enemy : MonoBehaviour
         currentprojectile.GetComponent<Projectile>().SetDamage(damage);
     }
 
+    // Starts heading towards players location
     private void ChasePlayer()
     {
         enemy.SetDestination(player.position);
     }
 
+    // Allows enemy to wander around the map
     private void Wonder()
     {
         if(isWalkPointSet)
@@ -105,6 +111,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // Sets a random location to walk to
     private void SetWalkingPoint()
     {
         float randomZ = Random.Range(-walkRange, walkRange);
@@ -120,6 +127,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // Removes an int of damage after colliding with a projectile
     public void TakeDamage(int amount)
     {
         hitPoints -= amount;
@@ -138,6 +146,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Drops a random quantity of exp balls
     private void DropXP(float value)
 	{
         int numberOfXP = Random.Range(1, 5);

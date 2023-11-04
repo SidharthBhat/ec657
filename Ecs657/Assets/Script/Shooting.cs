@@ -31,6 +31,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        // Activates if Shoot is pressed, shoot is linked to left click
         if (actions.Shoot.IsPressed())
         {
             if (Time.time - lastShot > cooldown)
