@@ -5,18 +5,20 @@ using UnityEngine;
 public class Fireball : GenericProjectile
 {
 
-    public Fireball(int damage, int duration, int interval) : base(damage, duration, interval)
-    {
 
+
+    private void Start()
+    {
+        
     }
 
     protected override IEnumerator projEffect()
     {
-        if (duration > 0)
+        while (duration > 0)
         {
             enemy.TakeDamage(1);
             duration--;
+            yield return new WaitForSeconds(interval);
         }
-        yield return new WaitForSeconds(interval);
     }
 }

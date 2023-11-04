@@ -10,10 +10,13 @@ public class Fire : Spell
     [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
 
+    [SerializeField] int damage;
+    [SerializeField] int duration;
+    [SerializeField] int interval;
     
     void Start()
     {
-        base.SetPlayer(GameObject.FindGameObjectWithTag("Player"));
+        base.SetPlayer(GameObject.FindGameObjectWithTag("MainCamera"));
     }
 
     //constructor for the spell. passes its attributes are arguments to the base Spell class
@@ -26,9 +29,10 @@ public class Fire : Spell
     //overrides the abstract cast method in spell for this specific spell's behaviour
     public override void Cast()
     {
-        //for example, here Fire creates a new firebll from the prefab in fireProj, then adds forward force to it
+        //for example, here Fire creates a new fireball from the prefab in fireProj, then adds forward force to it
         GameObject currentprojectile = Instantiate(fireProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * projSpeed, ForceMode.Impulse);
+        currentprojectile.GetComponent<Fireball>().setData(damage,duration,interval);
     }
 
 }
