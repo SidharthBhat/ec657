@@ -8,14 +8,10 @@ public class Water : Spell
     [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
 
-    [SerializeField] int damage;
-    [SerializeField] int duration;
-    [SerializeField] int interval;
-
     // Start is called before the first frame update
     void Start()
     {
-        base.SetPlayer(GameObject.FindGameObjectWithTag("MainCamera"));
+        base.SetPlayer(GameObject.FindGameObjectWithTag("Player"));
     }
 
     public Water(Sprite i, Spell[] c) : base(i, "Water", "Shoots ball of water. Damages and slows enemy.", c) 
@@ -26,6 +22,11 @@ public class Water : Spell
     {
         GameObject currentprojectile = Instantiate(waterProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * projSpeed, ForceMode.Impulse);
-        currentprojectile.GetComponent<Waterball>().setData(damage, duration, interval);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

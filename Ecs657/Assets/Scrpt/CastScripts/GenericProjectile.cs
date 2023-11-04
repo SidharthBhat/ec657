@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.Android;
 
@@ -10,36 +9,23 @@ public abstract class GenericProjectile : MonoBehaviour
     protected int duration;
     protected int interval;
     protected Enemy enemy;
-    protected GameObject enemyObj;
-    protected bool hit=false;
 
-    public void setData(int damage, int duration, int interval)
+    public GenericProjectile(int damage, int duration, int interval)
     {
         this.damage = damage;
         this.duration = duration;
         this.interval = interval;
-        Invoke("cleanup", 5);
-    }
-
-    private void cleanup()
-    {
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        enemyObj = other.gameObject;
-        enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
+        if (other.gameObject.tag.Equals("Enemy"))
         {
-            CancelInvoke("cleanup");
-            Debug.Log("Collided");
             enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
             GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<SphereCollider>().enabled = false;
+            GetComponent<MeshCollider>().enabled = false;
             StartCoroutine(projEffect());
-            hit = true;
         }
     }
 
@@ -48,7 +34,7 @@ public abstract class GenericProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (duration <= 0 && hit)
+        if (duration <= 0)
         {
             StopCoroutine(projEffect());
             Destroy(gameObject);

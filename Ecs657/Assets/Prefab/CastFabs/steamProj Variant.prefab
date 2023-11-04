@@ -56,29 +56,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: steamProj Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1260763966058380648, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6689170274625472767, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2558838080608751995}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
---- !u!1 &6461537977559515917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6689170274625472767, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
-  m_PrefabInstance: {fileID: 396117080254368754}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2558838080608751995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6461537977559515917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c39f06d1ed4d1479583fdabd6efa07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

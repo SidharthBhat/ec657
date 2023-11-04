@@ -1554,7 +1554,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 176913501966324525, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: projSpeed
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1519365834083062502, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: m_Name
@@ -1566,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2244377461489577114, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: projSpeed
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6618125760911452084, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: m_Pivot.x
@@ -1662,7 +1662,7 @@ PrefabInstance:
       objectReference: {fileID: 1700616576}
     - target: {fileID: 8195175857360750610, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: projSpeed
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4618,10 +4618,6 @@ PrefabInstance:
     - target: {fileID: 8282736406930089152, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
       propertyPath: cooldown
       value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282736406930089152, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
