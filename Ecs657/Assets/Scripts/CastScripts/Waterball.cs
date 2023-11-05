@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Waterball : GenericProjectile
 {
-    private bool effectActive = false;
     private float speed;
 
 

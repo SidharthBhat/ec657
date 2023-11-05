@@ -16,9 +16,16 @@ public class Fireball : GenericProjectile
     {
         while (duration > 0)
         {
-            enemy.TakeDamage(1);
-            duration--;
-            yield return new WaitForSeconds(interval);
+            if(enemyObj != null)
+            {
+                enemy.TakeDamage(1);
+                duration--;
+                yield return new WaitForSeconds(interval);
+            }
+            else
+            {
+                break;
+            }
         }
     }
 }

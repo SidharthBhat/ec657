@@ -33,7 +33,6 @@ public abstract class GenericProjectile : MonoBehaviour
         if (enemy != null)
         {
             CancelInvoke("cleanup");
-            Debug.Log("Collided");
             enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
             GetComponent<MeshRenderer>().enabled = false;
@@ -48,7 +47,7 @@ public abstract class GenericProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (duration <= 0 && hit)
+        if ((duration <= 0 || enemyObj == null) && hit)
         {
             StopCoroutine(projEffect());
             Destroy(gameObject);
