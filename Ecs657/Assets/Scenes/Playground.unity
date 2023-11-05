@@ -120,6 +120,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &11590609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7488566857388697443, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+  m_PrefabInstance: {fileID: 1167127660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &68359384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5990,7 +5995,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-54990
+  m_Name: pb_Mesh41448
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6149,6 +6154,55 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1095532943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1095532945}
+  - component: {fileID: 1095532944}
+  m_Layer: 0
+  m_Name: bossSpawnLoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1095532944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095532943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256bbc495a4359743a37dea95d23fffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPrefab: {fileID: 11590609}
+  bossSpawnTime: 300
+  timer: {fileID: 0}
+  spawnPoint: {fileID: 1095532945}
+  bossSpawned: 0
+--- !u!4 &1095532945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095532943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 323.89557, y: 6.74, z: 318.01746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1162060065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6239,12 +6293,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a48dff98a18a86f42bce71ee48eea190, type: 2}
     - target: {fileID: 5360403931862045243, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360403931862045243, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360403931862045243, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360403931862045243, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 266.2
       objectReference: {fileID: 0}
     - target: {fileID: 5360403931862045243, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3
+      value: -115.4
       objectReference: {fileID: 0}
     - target: {fileID: 5360403931862045243, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7052,7 +7118,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25644
+  m_Name: pb_Mesh41486
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -11741,3 +11807,4 @@ SceneRoots:
   - {fileID: 1167127660}
   - {fileID: 254404197}
   - {fileID: 1758842694}
+  - {fileID: 1095532945}
