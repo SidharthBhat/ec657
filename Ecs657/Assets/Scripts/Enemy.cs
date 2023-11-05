@@ -31,6 +31,12 @@ public class Enemy : MonoBehaviour
     int hitPoints;
     [SerializeField] bool isDead;
     //_________________________________________________________//
+    //Boss decleration variable
+    [SerializeField] bool isBoss;
+    //_________________________________________________________//
+    //will be used for win screen
+    [SerializeField] private Menus menus;
+    //_________________________________________________________//
     //xpVariables 
     [SerializeField] private float xpValue;
     [SerializeField] GameObject eXP;
@@ -159,9 +165,18 @@ public class Enemy : MonoBehaviour
     //functions needed when dying
     private void Die()
     {
-        TempEnemy();
-        DropXP(xpValue);
-        Destroy(gameObject);
+        //cheaks if the enemy is the final boss
+        if (isBoss)
+        {
+            menus.Win();
+            Die();
+        }
+        else 
+        {
+            TempEnemy();
+            DropXP(xpValue);
+            Destroy(gameObject);
+        }
     }
     //Drops x number of orbs which gives you xpValue worth of xp in total
     //orbs drop randomly when enemy dies within a certain range

@@ -576,6 +576,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 688925177744321744, guid: 114166dd291bbf54c8f89e243cfa596b, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7007530972643344962, guid: 114166dd291bbf54c8f89e243cfa596b, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -5995,7 +5999,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41448
+  m_Name: pb_Mesh44312
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6349,8 +6353,16 @@ PrefabInstance:
       value: BossMan
       objectReference: {fileID: 0}
     - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+      propertyPath: menus
+      value: 
+      objectReference: {fileID: 1607317888}
+    - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
       propertyPath: damage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+      propertyPath: isBoss
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
       propertyPath: xpValue
@@ -7118,7 +7130,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41486
+  m_Name: pb_Mesh44350
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

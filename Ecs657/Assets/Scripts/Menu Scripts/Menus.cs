@@ -8,13 +8,15 @@ public class Menus : MonoBehaviour
 
     private bool gameIsPaused = false;
     private bool gameIsOver = false;
+    private bool hasWon = false;
     public GameObject gameOverUI;
+    public GameObject victoryUI;
     public GameObject pauseMenuUI;
     public GameObject crosshair;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameIsOver)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameIsOver && !hasWon)
         {
             if (gameIsPaused)
             {
@@ -55,6 +57,7 @@ public class Menus : MonoBehaviour
         gameOverUI.SetActive(false);
         crosshair.SetActive(true);
         Time.timeScale = 1f;
+        hasWon = false;
         gameIsOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -67,6 +70,16 @@ public class Menus : MonoBehaviour
         gameOverUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsOver = true;
+    }
+
+    //displays victory scree when player dies
+    public void Win()
+    {  
+        Cursor.lockState = CursorLockMode.None;
+        crosshair.SetActive(false);
+        victoryUI.SetActive(true);
+        Time.timeScale = 0f;
+        hasWon = true;
     }
 
     //resumes gameplay
