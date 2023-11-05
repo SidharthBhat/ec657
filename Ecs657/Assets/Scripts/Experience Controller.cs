@@ -15,6 +15,7 @@ public class ExperienceController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    // Allows for changes in the value of xp
     public void SetXp(float value)
 	{
         xp = value;
@@ -30,6 +31,7 @@ public class ExperienceController : MonoBehaviour
         }
     }
 
+    // Allows for xp to follow and be collected by the player
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

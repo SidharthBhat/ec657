@@ -26,6 +26,7 @@ public abstract class GenericProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Triggers when it collides with an enemy
     private void OnTriggerEnter(Collider other)
     {
         enemyObj = other.gameObject;
@@ -46,6 +47,7 @@ public abstract class GenericProjectile : MonoBehaviour
     protected abstract IEnumerator projEffect();
 
     // Update is called once per frame
+    // Allows for damage over time
     void Update()
     {
         if (duration <= 0 && hit)

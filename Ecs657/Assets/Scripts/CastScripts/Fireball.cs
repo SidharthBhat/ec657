@@ -12,6 +12,7 @@ public class Fireball : GenericProjectile
         
     }
 
+    // Allows fireball to cause damage over time
     protected override IEnumerator projEffect()
     {
         while (duration > 0)

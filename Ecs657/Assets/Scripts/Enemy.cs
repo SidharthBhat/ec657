@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Checks to see if the object can see or attack the player
         canSeePlayer = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         canAttackPlayer = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
@@ -76,6 +77,7 @@ public class Enemy : MonoBehaviour
         hasAttacked = false;
     }
 
+    // Creates a projectile to send towards the player
     private void Attack()
     {
         GameObject currentprojectile = Instantiate(projectile, transform.position + transform.forward, Quaternion.identity);
@@ -106,6 +108,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // Sets location to head to
     private void SetWalkingPoint()
     {
         float randomZ = Random.Range(-walkRange, walkRange);

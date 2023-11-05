@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    [SerializeField] float mouseSensetivity = 120f;
+    // Allows for changes in mouse sensitivity
+    [SerializeField] float mouseSensitivity = 120f;
     [SerializeField] Transform playerBody;
     float xRotation = 0f;
 
@@ -18,8 +19,8 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensetivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensetivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Math.Clamp(xRotation, -90f, 90f);
