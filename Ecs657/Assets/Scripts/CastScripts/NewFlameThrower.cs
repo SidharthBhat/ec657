@@ -8,6 +8,7 @@ public class NewFlameThrower : Spell
     public ParticleSystem flameParticles;
     public int damage = 10;
     public float damageInterval = 0.02f; // The time interval for damage in seconds
+    private float dmgMul;
 
     private bool canDamage = true;
 
@@ -20,10 +21,13 @@ public class NewFlameThrower : Spell
     {
         base.SetPlayer(GameObject.FindGameObjectWithTag("MainCamera"));
         flameParticles.Stop();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        base.setStats(player.GetComponent<PlayerStats>());
     }
 
     public override void Cast()
     {
+        dmgMul = playerStats.dmgMul;
         StartCoroutine(StartFlamethrower(4));
     }
 
@@ -40,13 +44,15 @@ public class NewFlameThrower : Spell
     {
         if (canDamage)
         {
+            int dmg = Mathf.RoundToInt(damage * dmgMul);
+
             // Check if the collided object has an "Enemy" component
             Enemy enemy = other.GetComponent<Enemy>();
 
             if (enemy != null)
             {
                 // Apply damage to the enemy
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(dmg);
 
                 // Start the damage cooldown coroutine
                 StartCoroutine(DamageCooldown());

@@ -16,6 +16,8 @@ public class Water : Spell
     void Start()
     {
         base.SetPlayer(GameObject.FindGameObjectWithTag("MainCamera"));
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        base.setStats(player.GetComponent<PlayerStats>());
     }
 
     public Water(Sprite i, Spell[] c) : base(i, "Water", "Shoots ball of water. Damages and slows enemy.", c) 
@@ -24,8 +26,11 @@ public class Water : Spell
 
     public override void Cast()
     {
+        float dmgMul = playerStats.dmgMul;
+        int dmg = Mathf.RoundToInt(damage * dmgMul);
+
         GameObject currentprojectile = Instantiate(waterProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * projSpeed, ForceMode.Impulse);
-        currentprojectile.GetComponent<Waterball>().setData(damage, duration, interval);
+        currentprojectile.GetComponent<Waterball>().setData(dmg, duration, interval);
     }
 }

@@ -11,9 +11,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private  int maxHitPoints;
     [SerializeField] private int hitPoints;
     [SerializeField] private  int hpIncreasePerLevel;
-	#endregion
+    #endregion
+
+    #region playerMultipliers
+    public float dmgMul=1;
+    #endregion
+
     //_______________________________________________________//
-	// XP variables
+    // XP variables
     [SerializeField] private float experienceTillNextLevel;
     [SerializeField] private float experienceNeededMultiplier;
     [SerializeField] private float currentExperience;
@@ -64,11 +69,11 @@ public class PlayerStats : MonoBehaviour
         currentExperience += value;
         while(currentExperience >= experienceTillNextLevel)
 		{
-            print("hello");
             maxHitPoints += hpIncreasePerLevel;
             //increase hp by x amount and full heal
             healthbar.setMaxHealth(maxHitPoints);
             Heal(maxHitPoints);
+            dmgMul += 0.1f;
 
             currentExperience -= experienceTillNextLevel;
             experienceTillNextLevel *= experienceNeededMultiplier;

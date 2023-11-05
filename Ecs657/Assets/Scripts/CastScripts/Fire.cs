@@ -20,11 +20,13 @@ public class Fire : Spell
     void Start()
     {
         base.SetPlayer(GameObject.FindGameObjectWithTag("MainCamera"));
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        base.setStats(player.GetComponent<PlayerStats>());
     }
 
     //constructor for the spell. passes its attributes are arguments to the base Spell class
     //this means you can copy-paste this, and sub in the new spell's classname and its attributes
-    //i is the icon, c is the combination recipe
+    //i is the icon, c is the combination recipe, these are both set in the inspector
     public Fire(Sprite i, Spell[] c) : base(i,"Fire","Shoots fireball. Damages and burns enemy.", c)
     {
     }
@@ -32,10 +34,13 @@ public class Fire : Spell
     //overrides the abstract cast method in spell for this specific spell's behaviour
     public override void Cast()
     {
-        //for example, here Fire creates a new fireball from the prefab in fireProj, then adds forward force to it
+        float dmgMul = playerStats.dmgMul;
+        int dmg = Mathf.RoundToInt(damage*dmgMul);
+
+        //for example, here Fire creates a new fireball from the prefab in fireProj, then adds forward force to it, and initialise its stats
         GameObject currentprojectile = Instantiate(fireProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * projSpeed, ForceMode.Impulse);
-        currentprojectile.GetComponent<Fireball>().setData(damage,duration,interval);
+        currentprojectile.GetComponent<Fireball>().setData(dmg,duration,interval);
     }
 
 }

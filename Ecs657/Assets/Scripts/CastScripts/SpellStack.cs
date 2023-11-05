@@ -65,13 +65,14 @@ public class SpellStack : MonoBehaviour
     bool checkDuplicates(Spell spell)
     {
         int index = -1;
-
+        //checks the spellstack for a matching spell
         for (int i = 0; i < stackSpells.Length; i++)
         {
             if (stackSpells[i] != null)
             {
                 if (stackSpells[i].spellName.Equals(spell.spellName))
                 {
+                    //match found, store index
                     index = i;
                     break;
                 }
@@ -80,6 +81,7 @@ public class SpellStack : MonoBehaviour
 
         if(index >= 0)
         {
+            //if found, remove matching spell
             removeSpell(index);
             return true;
         }
@@ -87,26 +89,16 @@ public class SpellStack : MonoBehaviour
         return false;
     }
 
-    int checkIndex(Spell spell)
-    {
-        for(int i = 0; i < stackSpells.Length; i++)
-        {
-            if (stackSpells[i].name == spell.name)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     // Removes a spell from the stack at the specified index.
     void removeSpell(int index)
     {
         if (index < stackSpells.Length - 1 && index>=0)
         {
+            //removes spell by destroying slot instance and resetting reference in stackSlots and stackSpells
             Destroy(stackSlots[index]);
             stackSlots[index] = null;
             stackSpells[index] = null;
+            //moves all spells after removed spell down by one
             for (int i = index; i < stackSpells.Length - 1; i++)
             {
                 stackSlots[i] = stackSlots[i + 1];
@@ -116,6 +108,7 @@ public class SpellStack : MonoBehaviour
                     break;
                 }
             }
+            //resizes stack
             stackIndex--;
         }
     }
