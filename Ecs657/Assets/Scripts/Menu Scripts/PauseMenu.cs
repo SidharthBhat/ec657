@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-    bool gameIsPaused = false;
+    private bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject crosshair;
 
@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    //freezes time, activates pauseMenu and deactivates crosshair 
     void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -34,6 +35,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
+    //changes scene to menu scene
     public void MainMenuButton()
     {
         Save();
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    //Resumes time, dactivates pauseMenu and activates crosshair 
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -56,9 +59,10 @@ public class PauseMenu : MonoBehaviour
     
     public void Save()
     {
-
+        //to be done later
     }
 
+    //closes application
     public void QuitButton()
     {
         Save();

@@ -7,13 +7,13 @@ using UnityEngine.UIElements;
 public class Fire : Spell
 {
     [SerializeField] Transform fireProj;
-    [SerializeField] float projSpeed;
-    [SerializeField] float cooldown;
+    [SerializeField] private float projSpeed;
+    [SerializeField] private float cooldown;
 
     //values for the projectile
-    [SerializeField] int damage; //damage on contact
-    [SerializeField] int duration;
-    [SerializeField] int interval;
+    [SerializeField] private int damage; //damage on contact
+    [SerializeField] private int duration;
+    [SerializeField] private int interval;
     //interval only functions for repeating effects (e.g. chip damage), so then total duration is duration*interval
     //for one-time effects, (e.g. slowdown), interval is useless so duration is the total time for the effect
     

@@ -5,24 +5,24 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
+
     [SerializeField] private Menus menus;
     #region hpVariables
-    public int maxHitPoints;
-    private int hitPoints;
-    public int hpIncreasePerLevel;
+    [SerializeField] private  int maxHitPoints;
+    [SerializeField] private int hitPoints;
+    [SerializeField] private  int hpIncreasePerLevel;
 	#endregion
-
-	#region xpVariables
+    //_______________________________________________________//
+	// XP variables
     [SerializeField] private float experienceTillNextLevel;
     [SerializeField] private float experienceNeededMultiplier;
-    private float currentExperience;
-    public int level;
-    #endregion
-
-    #region uiVariables
+    [SerializeField] private float currentExperience;
+    [SerializeField] private int level;
+    //_______________________________________________________//
+    // UI variables
     [SerializeField] private TMP_Text LevelUI;
-    [SerializeField] private HealthBar healthbar; 
-    #endregion
+    [SerializeField] private HealthBar healthbar;
+    //_______________________________________________________//
     // Start is called before the first frame update
     void Start()
     {
@@ -64,9 +64,12 @@ public class PlayerStats : MonoBehaviour
         currentExperience += value;
         while(currentExperience >= experienceTillNextLevel)
 		{
+            print("hello");
             maxHitPoints += hpIncreasePerLevel;
+            //increase hp by x amount and full heal
             healthbar.setMaxHealth(maxHitPoints);
             Heal(maxHitPoints);
+
             currentExperience -= experienceTillNextLevel;
             experienceTillNextLevel *= experienceNeededMultiplier;
             level++;

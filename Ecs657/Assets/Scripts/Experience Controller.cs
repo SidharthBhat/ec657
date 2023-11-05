@@ -21,8 +21,10 @@ public class ExperienceController : MonoBehaviour
         xp = value;
 	}
 
+    //in late update to avoid choppiness in movementzs
     void LateUpdate()
     {
+        //movement code for xpOrb to go to player
         if (chasingPlayer)
         {
             Transform character = player.transform;

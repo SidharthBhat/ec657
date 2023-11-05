@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Fireball : GenericProjectile
 {
-
-
-
-    private void Start()
-    {
-        
-    }
-
     // Allows fireball to cause damage over time
     protected override IEnumerator projEffect()
     {

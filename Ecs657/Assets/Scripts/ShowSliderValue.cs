@@ -9,6 +9,7 @@ public class ShowSliderValue : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI text;
     public string textName;
+
     // Start is called before the first frame update
     void Start()
     {

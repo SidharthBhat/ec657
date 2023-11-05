@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {
 
-    bool gameIsPaused = false;
-    bool gameIsOver = false;
+    private bool gameIsPaused = false;
+    private bool gameIsOver = false;
     public GameObject gameOverUI;
     public GameObject pauseMenuUI;
     public GameObject crosshair;
@@ -27,6 +27,7 @@ public class Menus : MonoBehaviour
         }
     }
 
+    //freezes gameplay
     void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -36,6 +37,7 @@ public class Menus : MonoBehaviour
         gameIsPaused = true;
     }
 
+    //goes to main menu scene
     public void MainMenuButton()
     {
         Save();
@@ -46,6 +48,7 @@ public class Menus : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    //make player start from beggining of the game
     public void Restart()
     {  
         Cursor.lockState = CursorLockMode.Locked;
@@ -56,6 +59,7 @@ public class Menus : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //displays gameOver when player dies
     public void GameOver()
     {  
         Cursor.lockState = CursorLockMode.None;
@@ -65,6 +69,7 @@ public class Menus : MonoBehaviour
         gameIsOver = true;
     }
 
+    //resumes gameplay
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;

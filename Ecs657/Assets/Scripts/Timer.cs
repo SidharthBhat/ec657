@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     //static since multiple scripts will use this
     [SerializeField] private float timeValue = 0;
     [SerializeField] TextMeshProUGUI label;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Timer : MonoBehaviour
         DisplayTime(timeValue);
     }
 
+    //display time on text in minutes & seconds
     void DisplayTime(float displayTime)
 	{
         float minutes = Mathf.FloorToInt(displayTime / 60);

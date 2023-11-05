@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
+    //references
     [SerializeField] Image fill;
     [SerializeField] Slider slider;
     [SerializeField] Gradient gradient;
     // Start is called before the first frame update
 
-    //increase max hp and set HP to that amount
+    //increase slider max value and set value to max
     public void setMaxHealth(float maxHealth)
 	{
         slider.maxValue = maxHealth;
@@ -17,6 +18,7 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
 	}
 
+    //set slider values to what hp is
     public void setHealth(int health)
 	{
         slider.value = health;
