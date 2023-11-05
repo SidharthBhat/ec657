@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
-
+using UnityEngine.InputSystem;
 public abstract class GenericProjectile : MonoBehaviour
 {
     private int damage;
