@@ -158,14 +158,14 @@ MonoBehaviour:
   attackRange: 20
   sightRange: 40
   projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
-  projSpeed: 200
+  baseProjSpeed: 200
   attackTiming: 1
-  damage: 5
+  baseDamage: 5
   healthbar: {fileID: 4317141736286118437}
-  maxHitPoints: 20
+  baseMaxHp: 20
   isDead: 0
   xpValue: 10
-  eXP: {fileID: 6017612084703524904, guid: 7b624846e73c0fb44ba5d561e5d49897, type: 3}
+  EXP: {fileID: 6017612084703524904, guid: 7b624846e73c0fb44ba5d561e5d49897, type: 3}
 --- !u!1 &8144816204290158243
 GameObject:
   m_ObjectHideFlags: 0

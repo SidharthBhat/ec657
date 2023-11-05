@@ -5,7 +5,6 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
 
-    //static since multiple scripts will use this
     public float timeValue;
     [SerializeField] TextMeshProUGUI label;
 

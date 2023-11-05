@@ -5,31 +5,34 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] NavMeshAgent enemy;
-    [SerializeField] Transform player;
-    [SerializeField] LayerMask groundLayer, playerLayer;
-    [SerializeField] Timer timer;
+    [SerializeField] private NavMeshAgent enemy;
+    [SerializeField] private Transform player;
+    [SerializeField] private LayerMask groundLayer, playerLayer;
+    [SerializeField] private Timer timer;
     //_________________________________________________________//
     //Movement variables
-    [SerializeField] float waitAtPoint;
-    [SerializeField] float walkRange, attackRange, sightRange;
+    [SerializeField] private float waitAtPoint;
+    [SerializeField] private float walkRange, attackRange, sightRange;
     bool isWalkPointSet = false;
     Vector3 walkPoint;
     //_________________________________________________________//
     //Attack variables
-    [SerializeField] GameObject projectile;
-    [SerializeField] float projSpeed;
-    [SerializeField] float attackTiming;
-    [SerializeField] int damage;
-    bool hasAttacked = false;
-    bool canSeePlayer = false;
-    bool canAttackPlayer = false;
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private int baseProjSpeed;
+    [SerializeField] private float attackTiming;
+    [SerializeField] private int baseDamage;
+    private int projSpeed;
+    private int damage;
+    private bool hasAttacked = false;
+    private bool canSeePlayer = false;
+    private bool canAttackPlayer = false;
     //_________________________________________________________//
     //HP variables
-    [SerializeField] HealthBar healthbar;
-    [SerializeField] int maxHitPoints;
-    int hitPoints;
-    [SerializeField] bool isDead;
+    [SerializeField] private HealthBar healthbar;
+    [SerializeField] private int baseMaxHp;
+    [SerializeField] private bool isDead;
+    private int maxHP;
+    private int currentHP;
     //_________________________________________________________//
     //Boss decleration variable
     [SerializeField] bool isBoss;
@@ -39,7 +42,7 @@ public class Enemy : MonoBehaviour
     //_________________________________________________________//
     //xpVariables 
     [SerializeField] private float xpValue;
-    [SerializeField] GameObject eXP;
+    [SerializeField] private GameObject EXP;
     //_________________________________________________________//
 
 
@@ -153,9 +156,9 @@ public class Enemy : MonoBehaviour
     //reduce current hp by x
     public void TakeDamage(int amount)
     {
-        healthbar.setHealth(hitPoints);
-        hitPoints -= amount;
-        if (hitPoints <= 0 && !isDead)
+        healthbar.setHealth(currentHP);
+        currentHP -= amount;
+        if (currentHP <= 0 && !isDead)
         {
             isDead = true;
             Die();
@@ -192,7 +195,7 @@ public class Enemy : MonoBehaviour
                                                  transform.position.y + randomRangeY, 
                                                  transform.position.z + randomRangeZ);
 
-            GameObject XPDrop = Instantiate(eXP, randomPosition, Quaternion.identity);
+            GameObject XPDrop = Instantiate(EXP, randomPosition, Quaternion.identity);
             XPDrop.GetComponent<ExperienceController>().SetXp(value / numberOfXP);
 		}
 	}
@@ -208,7 +211,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 spawnLocation = new Vector3(200f + randomX,
                                             5f,
-                                            200f + randomZ);
+                                            200f + randomZ); 
         Instantiate(gameObject, spawnLocation, Quaternion.identity);
         Instantiate(gameObject, spawnLocation + Vector3.one * 2, Quaternion.identity);
     }
@@ -218,22 +221,24 @@ public class Enemy : MonoBehaviour
 	{
         float currentTime = timer.timeValue;
 
-        //increase hp every 30 seconds by 5% up to 200% original hp, linear
-        int HPIncrementer = Mathf.CeilToInt(currentTime / 30);
-        float HPMultiplier = 1 + Mathf.Clamp(HPIncrementer / 20, 0f, 2f);
-        maxHitPoints += Mathf.CeilToInt(maxHitPoints * HPMultiplier);
-        hitPoints = maxHitPoints;
-        healthbar.setMaxHealth(maxHitPoints);
+        //increase hp every 15 seconds by 10% up to 200% original hp, linear
+        float HPIncrementer = Mathf.FloorToInt(currentTime / 15);
+        HPIncrementer = HPIncrementer / 10;
+        float HPMultiplier = Mathf.Clamp(HPIncrementer, 0f, 2f);
+        maxHP = baseMaxHp + Mathf.CeilToInt(baseMaxHp * HPMultiplier);
+        currentHP = maxHP;
+        healthbar.setMaxHealth(maxHP);
 
         //increase projectile speed ever 60 seconds by 10% up to 30% increase, linear
-        int projectileSpeedIncrementer = Mathf.CeilToInt(currentTime / 60);
-        float projectileSpeedMultiplier = 1 + Mathf.Clamp(projectileSpeedIncrementer / 10, 0f, 0.3f);
-        projSpeed += Mathf.CeilToInt(projSpeed * projectileSpeedMultiplier);
+        float projectileSpeedIncrementer = Mathf.FloorToInt(currentTime / 60);
+        projectileSpeedIncrementer = projectileSpeedIncrementer / 10;
+        float projectileSpeedMultiplier = Mathf.Clamp(projectileSpeedIncrementer, 0f, 0.3f);
+        projSpeed = baseProjSpeed + Mathf.CeilToInt(baseProjSpeed * projectileSpeedMultiplier);
 
-        //increase damage by 1 every minute up to 5, linear
-        int DamageIncrementer = Mathf.CeilToInt(currentTime / 60);
+        //increase damage by 1 every 30 seconds up to 5, linear
+        int DamageIncrementer = Mathf.FloorToInt(currentTime / 30);
         DamageIncrementer = (int) Mathf.Clamp(DamageIncrementer, 0f, 5f);
-        damage += DamageIncrementer;
+        damage = baseDamage + DamageIncrementer;
     }
     //for debugging
     void OnDrawGizmosSelected()
@@ -244,7 +249,6 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-
     }
 
     #endregion
