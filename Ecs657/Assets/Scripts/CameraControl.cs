@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour
     // Allows for changes in mouse sensitivity
     [SerializeField] float mouseSensitivity = 120f;
     [SerializeField] Transform playerBody;
-    float xRotation = 0f;
+    private float xRotation = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class CameraControl : MonoBehaviour
     }
 
     // Update is called once per frame
+    //rotate camera according to mouse
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;

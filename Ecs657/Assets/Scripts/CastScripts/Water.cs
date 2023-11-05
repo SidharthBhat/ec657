@@ -5,12 +5,12 @@ using UnityEngine;
 public class Water : Spell
 {
     [SerializeField] Transform waterProj;
-    [SerializeField] float projSpeed;
-    [SerializeField] float cooldown;
+    [SerializeField] private float projSpeed;
+    [SerializeField] private float cooldown;
 
-    [SerializeField] int damage;
-    [SerializeField] int duration;
-    [SerializeField] int interval;
+    [SerializeField] private int damage;
+    [SerializeField] private int duration;
+    [SerializeField] private int interval;
 
     // Start is called before the first frame update
     void Start()

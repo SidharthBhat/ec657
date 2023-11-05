@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5482954569796828340}
   - component: {fileID: 1553355086499533249}
   - component: {fileID: 7694806976863755868}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,25 +146,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1553355086499533249}
   player: {fileID: 0}
-  waitAtPoint: 10
-  projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
-  projSpeed: 250
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  waitAtPoint: 10
   walkRange: 50
   attackRange: 20
   sightRange: 40
+  projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
+  projSpeed: 250
   attackTiming: 1
   damage: 5
+  healthbar: {fileID: 4317141736286118437}
   maxHitPoints: 20
+  isDead: 0
   xpValue: 10
   eXP: {fileID: 6017612084703524904, guid: 7b624846e73c0fb44ba5d561e5d49897, type: 3}
-  debug: 0
-  healthbar: {fileID: 4317141736286118437}
 --- !u!1 &8144816204290158243
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7470234974392883969}
   - component: {fileID: 6596249487467360971}
   - component: {fileID: 7282822742098279426}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,9 +287,21 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: updateText
       objectReference: {fileID: 0}
+    - target: {fileID: 1586766649228222870, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990202221360490973, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5120415947130523491, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120415947130523491, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6019526315947680588, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
       propertyPath: m_AnchorMax.x

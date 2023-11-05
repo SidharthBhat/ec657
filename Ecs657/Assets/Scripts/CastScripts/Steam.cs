@@ -22,6 +22,7 @@ public class Steam : Spell {
     {
     }
 
+    //spawns steam projectile
     public override void Cast()
     {
         GameObject currentprojectile = Instantiate(steamProj, player.transform.position + player.transform.forward, Quaternion.identity).gameObject;

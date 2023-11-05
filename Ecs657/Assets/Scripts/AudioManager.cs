@@ -4,10 +4,12 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioMixer mixer;
+    [SerializeField] private AudioMixer mixer;
     public const string master = "MasterVolume";
     public static AudioManager instance;
+
     // Start is called before the first frame update
+    //Singleton pattern
     void Awake()
     {
         if (instance == null)
@@ -22,8 +24,7 @@ public class AudioManager : MonoBehaviour
         LoadVolume();
     }
 
-    
-
+    //Set volume to x
     void LoadVolume()
     {
         float volume = PlayerPrefs.GetFloat(master,0f);

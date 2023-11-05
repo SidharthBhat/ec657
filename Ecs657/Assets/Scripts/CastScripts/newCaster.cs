@@ -9,9 +9,9 @@ public class newCaster : MonoBehaviour
     [SerializeField] float cooldown;
     private float lastShot;
 
-    SpellStack spellStack;
+    private SpellStack spellStack;
     [SerializeField] GameObject sStack;
-    HotBarController hotBarController;
+    private HotBarController hotBarController;
     [SerializeField] GameObject hotBar;
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class newCaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //firing code
         if (actions.Shoot.IsPressed()) {
             if (Time.time - lastShot > cooldown)
             {
@@ -34,6 +35,7 @@ public class newCaster : MonoBehaviour
                 lastShot = Time.time;
             }
         }
+        //spell combination code
         if (actions.Hotbar.WasPressedThisFrame())
         {
             int slot = (int) actions.Hotbar.ReadValue<float>();

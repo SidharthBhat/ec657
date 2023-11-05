@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public PlayerInput playerControls;
+    //Other variables
+    [SerializeField] private PlayerInput playerControls;
     private PlayerInput.PlayerActions actions;
+
+    //Projetile variables
     [SerializeField] GameObject projectile;
     [SerializeField] float projSpeed;
     [SerializeField] float cooldown;
     [SerializeField] int damage;
     private float lastShot;
+
     // Start is called before the first frame update
     void Start()
     {
         playerControls = new PlayerInput();
         playerControls.Enable();
         actions = playerControls.Player;
-    }
-
-	void Awake()
-	{
-
     }
 	// Update is called once per frame
 	void Update()

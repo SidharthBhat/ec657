@@ -78,7 +78,6 @@ public class SpellStack : MonoBehaviour
             }
         }
 
-        
         if(index >= 0)
         {
             removeSpell(index);
@@ -100,6 +99,7 @@ public class SpellStack : MonoBehaviour
         return -1;
     }
 
+    // Removes a spell from the stack at the specified index.
     void removeSpell(int index)
     {
         if (index < stackSpells.Length - 1 && index>=0)
@@ -120,6 +120,7 @@ public class SpellStack : MonoBehaviour
         }
     }
 
+    //cast all spells in stack and removes them
     public void castStack()
     {
         for (int i = 0; i < stackSpells.Length; i++)
@@ -134,10 +135,5 @@ public class SpellStack : MonoBehaviour
                 break;
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

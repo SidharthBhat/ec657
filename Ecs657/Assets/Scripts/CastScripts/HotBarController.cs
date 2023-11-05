@@ -28,6 +28,7 @@ public class HotBarController : MonoBehaviour
         }
     }
 
+    //add spell into a specific slot
     public void AddSpell(int slot)
     {
         //add spell to spellstack
@@ -35,10 +36,5 @@ public class HotBarController : MonoBehaviour
         {
             spellStack.addSpell(spells[slot]);
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

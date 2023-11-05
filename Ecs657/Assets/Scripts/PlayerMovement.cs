@@ -8,21 +8,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public PlayerInput playerControls ;
+    [SerializeField] private PlayerInput playerControls;
     private PlayerInput.PlayerActions actions;
-    [SerializeField] CharacterController characterController;
-    [SerializeField] float speed = 12f;
-    [SerializeField] float gravity = -9.8f;
-    [SerializeField] float jumpHeigth = 2f;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] Vector3 groundCheckDimension = new Vector3(1f, 0.5f, 1f);
-    [SerializeField] LayerMask groundMask;
-    Vector3 velocity;
-    bool isGrounded;
+    [SerializeField] private CharacterController characterController;
+    [SerializeField] private float speed = 12f;
+    [SerializeField] private float gravity = -9.8f;
+    [SerializeField] private float jumpHeigth = 2f;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Vector3 groundCheckDimension = new Vector3(1f, 0.5f, 1f);
+    [SerializeField] private LayerMask groundMask;
+    private Vector3 velocity;
+    private bool isGrounded;
     [SerializeField] private bool debug;
     [SerializeField] float sprintSpeed;
 
-
+    //debugging for what direction the user is facing
     void OnDrawGizmos()
 	{
         if(!debug)
@@ -31,11 +31,14 @@ public class PlayerMovement : MonoBehaviour
 		}
         Debug.DrawLine(transform.position, transform.position + transform.forward * 5, Color.red);
 	}
+
+    //initialise variables
     void Awake()
     {
         playerControls = new PlayerInput();
         actions = playerControls.Player;
     }
+
     void OnEnable()
     {
         playerControls.Enable();

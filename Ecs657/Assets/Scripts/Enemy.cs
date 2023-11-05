@@ -7,30 +7,40 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] NavMeshAgent enemy;
     [SerializeField] Transform player;
-    [SerializeField] float waitAtPoint;
-    [SerializeField] GameObject projectile;
-    [SerializeField] float projSpeed;
     [SerializeField] LayerMask groundLayer, playerLayer;
+    //_________________________________________________________//
+    //Movement variables
+    [SerializeField] float waitAtPoint;
     [SerializeField] float walkRange, attackRange, sightRange;
     bool isWalkPointSet = false;
     Vector3 walkPoint;
+    //_________________________________________________________//
+    //Attack variables
+    [SerializeField] GameObject projectile;
+    [SerializeField] float projSpeed;
     [SerializeField] float attackTiming;
+    [SerializeField] int damage;
     bool hasAttacked = false;
     bool canSeePlayer = false;
     bool canAttackPlayer = false;
-    [SerializeField] int damage;
+    //_________________________________________________________//
+    //HP variables
+    [SerializeField] HealthBar healthbar;
     [SerializeField] int maxHitPoints;
     int hitPoints;
+    [SerializeField] bool isDead;
+    //_________________________________________________________//
+    //xpVariables 
     [SerializeField] private float xpValue;
     [SerializeField] GameObject eXP;
-    [SerializeField] private bool debug;
-    [SerializeField] HealthBar healthbar;
+    //_________________________________________________________//
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         hitPoints = maxHitPoints;
         healthbar.setMaxHealth(maxHitPoints);
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -56,7 +66,8 @@ public class Enemy : MonoBehaviour
             Wonder();
         }
     }
-
+    //--------------------------------------------------------//
+    #region attacking code
     //fire projectile towards player
     private void AttackPlayer()
     {
@@ -84,12 +95,16 @@ public class Enemy : MonoBehaviour
         currentprojectile.GetComponent<Rigidbody>().AddForce(transform.forward * projSpeed, ForceMode.Impulse);
         currentprojectile.GetComponent<Projectile>().SetDamage(damage);
     }
-
-    private void ChasePlayer()
+	#endregion
+    //--------------------------------------------------------//
+	#region movement code
+    //go towards player
+	private void ChasePlayer()
     {
         enemy.SetDestination(player.position);
     }
 
+    // Controls enemy movement by setting and guiding them to walk points.
     private void Wonder()
     {
         if(isWalkPointSet)
@@ -123,26 +138,28 @@ public class Enemy : MonoBehaviour
             isWalkPointSet = true;
         }
     }
-
-    //reduce enemy hp
+    #endregion
+    //--------------------------------------------------------//
+    #region takeDamage code
+    //reduce current hp by x
     public void TakeDamage(int amount)
     {
         healthbar.setHealth(hitPoints);
         hitPoints -= amount;
-        if (hitPoints <= 0)
+        if (hitPoints <= 0 && !isDead)
         {
+            isDead = true;
             Die();
         }
     }
 
+    //functions needed when dying
     void Die()
     {
-        //add exp drop
         TempEnemy();
         DropXP(xpValue);
         Destroy(gameObject);
     }
-
     //Drops x number of orbs which gives you xpValue worth of xp in total
     //orbs drop randomly when enemy dies within a certain range
     private void DropXP(float value)
@@ -162,19 +179,21 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+    #endregion
+    //--------------------------------------------------------//
+    #region misc code
     //spawn 2 enemies every time an enemy dies
     void TempEnemy()
     {
         float randomZ = Random.Range(-walkRange, walkRange);
         float randomX = Random.Range(-walkRange, walkRange);
 
-        Vector3 spawnLocation = new Vector3(200f +randomX,
+        Vector3 spawnLocation = new Vector3(200f + randomX,
                                             5f,
-                                            200f +randomZ);
+                                            200f + randomZ);
         Instantiate(gameObject, spawnLocation, Quaternion.identity);
-        Instantiate(gameObject, spawnLocation + Vector3.one *2, Quaternion.identity);
+        Instantiate(gameObject, spawnLocation + Vector3.one * 2, Quaternion.identity);
     }
-
 
     //for debugging
     void OnDrawGizmosSelected()
@@ -188,6 +207,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-
+    #endregion
+    //--------------------------------------------------------//
 }
 

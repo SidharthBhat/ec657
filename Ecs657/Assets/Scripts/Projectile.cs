@@ -5,12 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float expiration;
-    int damage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int damage;
 
     public void SetDamage( int amount)
     {

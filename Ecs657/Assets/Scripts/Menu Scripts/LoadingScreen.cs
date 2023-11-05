@@ -17,6 +17,7 @@ public class LoadingScreen : MonoBehaviour
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
+    //displays the progress of loading a scene in %
     IEnumerator LoadAsynchronously (int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
