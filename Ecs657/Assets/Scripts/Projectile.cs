@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
         Invoke(nameof(DestroyProjectile), expiration);
     }
 
+    // Detects collision with enemy or player so that they can take damage
     void OnCollisionEnter(Collision collide){
         if (collide.gameObject.GetComponent<Enemy>() != null)
         {

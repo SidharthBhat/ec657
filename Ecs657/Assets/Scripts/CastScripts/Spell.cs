@@ -13,7 +13,7 @@ public abstract class Spell : MonoBehaviour
     protected GameObject player; //player ref
 
     //Spell is abstract, it's not meant to be initialised
-    //Instead, actual spells extend it, using the constructer for their attributes
+    //Instead, actual spells extend it, using the constructor for their attributes
     public Spell(Sprite i, string sn, string d, Spell[] c)
     {
         icon = i;

@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     [SerializeField] private bool debug;
+    [SerializeField] float sprintSpeed;
 
 
     void OnDrawGizmos()
@@ -52,14 +53,19 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    // Allows for movement set up with player input
     void Move()
         {
         Vector2 direction = actions.Movement.ReadValue<Vector2>();
         Vector3 move = transform.right * direction.x + transform.forward * direction.y;
-        characterController.Move(move * speed * Time.deltaTime);
+        // Check if Shift key is held down for sprinting
+        float currentSpeed = actions.Sprint.IsPressed() ? sprintSpeed : speed;
+        characterController.Move(move * currentSpeed * Time.deltaTime);
+
 
     }
 
+    // Allows you to jump when on the ground
     void Jump()
     {
         isGrounded = Physics.CheckBox(groundCheck.position, groundCheckDimension, Quaternion.identity, groundMask);

@@ -7,7 +7,7 @@ public class Waterball : GenericProjectile
 {
     private float speed;
 
-
+    // Slows down enemies affected by projectile
     protected override IEnumerator projEffect()
     {
         enemyObj.GetComponent<NavMeshAgent>().speed /= 2;

@@ -34,6 +34,7 @@ public class PlayerStats : MonoBehaviour
     //------------------------------------------------------------------//
 	#region hpCode
 	// Update is called once per frame
+	// Allows the player to take damage as an int
 	public void TakeDamage(int amount)
     {
         hitPoints -= amount;
