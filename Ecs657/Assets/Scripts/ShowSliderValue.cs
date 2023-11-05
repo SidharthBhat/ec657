@@ -8,17 +8,17 @@ public class ShowSliderValue : MonoBehaviour
 {
     public Slider slider;
     public TextMeshProUGUI text;
-    public string name;
+    public string textName;
     // Start is called before the first frame update
     void Start()
     {
-        text.text = name + ": " + Mathf.Round(slider.value * 100f) / 100f;
+        text.text = textName + ": " + Mathf.Round(slider.value * 100f) / 100f;
     }
 
-    //changes text value if slider ever changes value
+    //changes text value if slider ever changes valuea
     public void updateText()
 	{
         //rounds to 2 sig fig
-        text.text = name + ": " + Mathf.Round(slider.value * 100f) / 100f;
+        text.text = textName + ": " + Mathf.Round(slider.value * 100f) / 100f;
     }
 }

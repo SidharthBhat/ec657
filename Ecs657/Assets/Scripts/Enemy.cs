@@ -167,6 +167,7 @@ public class Enemy : MonoBehaviour
     }
 
 
+    //for debugging
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

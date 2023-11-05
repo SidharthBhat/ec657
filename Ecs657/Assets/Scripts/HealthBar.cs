@@ -9,7 +9,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField] Gradient gradient;
     // Start is called before the first frame update
 
-    public void setMaxHealth(int maxHealth)
+    //increase max hp and set HP to that amount
+    public void setMaxHealth(float maxHealth)
 	{
         slider.maxValue = maxHealth;
         slider.value = maxHealth;

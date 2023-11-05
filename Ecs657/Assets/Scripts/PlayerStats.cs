@@ -5,20 +5,23 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] Menus menus;
+    [SerializeField] private Menus menus;
     #region hpVariables
-    [SerializeField] int maxHitPoints;
-    int hitPoints;
+    public int maxHitPoints;
+    private int hitPoints;
+    public int hpIncreasePerLevel;
 	#endregion
+
 	#region xpVariables
-    [SerializeField] public float experienceTillNextLevel;
-    [SerializeField] public float currentExperience;
-    [SerializeField] public int level;
-    [SerializeField] public float xpNeededMultiplier;
+    [SerializeField] private float experienceTillNextLevel;
+    [SerializeField] private float experienceNeededMultiplier;
+    private float currentExperience;
+    public int level;
     #endregion
+
     #region uiVariables
-    [SerializeField] TMP_Text LevelUI;
-    [SerializeField] HealthBar healthbar; 
+    [SerializeField] private TMP_Text LevelUI;
+    [SerializeField] private HealthBar healthbar; 
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -41,9 +44,11 @@ public class PlayerStats : MonoBehaviour
         }   
     }
 
+    // Increase hp by x amount 
     public void Heal(int amount)
     {
         hitPoints += amount;
+        //if healed over max hp, clamp to max hp
         if (hitPoints >= maxHitPoints)
         {
             hitPoints = maxHitPoints;
@@ -58,12 +63,15 @@ public class PlayerStats : MonoBehaviour
         currentExperience += value;
         while(currentExperience >= experienceTillNextLevel)
 		{
+            maxHitPoints += hpIncreasePerLevel;
+            healthbar.setMaxHealth(maxHitPoints);
             currentExperience -= experienceTillNextLevel;
-            experienceTillNextLevel *= xpNeededMultiplier;
+            experienceTillNextLevel *= experienceNeededMultiplier;
             level++;
 		}
         LevelUI.text = "Level " + level + ": (" + Mathf.Round(currentExperience) + "/" + Mathf.Round(experienceTillNextLevel) + ")"; 
 	}
+
 	#endregion
 	//------------------------------------------------------------------//
 }

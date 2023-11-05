@@ -9,15 +9,10 @@ public class ExperienceController : MonoBehaviour
     private GameObject player;
     [SerializeField] private GameObject self;
     [SerializeField] private float xp;
-    [SerializeField] private float bobAmplitude = 0.5f; // Adjust this value to control the bobbing amplitude
-    [SerializeField] private float bobSpeed = 2.0f; // Adjust this value to control the bobbing speed
-
-    private Vector3 initialPosition;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        initialPosition = transform.position;
     }
 
     public void SetXp(float value)

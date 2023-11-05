@@ -253,6 +253,4 @@ MonoBehaviour:
   velocityMultiplier: 5
   chasingPlayer: 0
   self: {fileID: 6017612084703524904}
-  bobAmplitude: 0.5
-  bobSpeed: 2
   xp: 0
