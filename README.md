@@ -2,6 +2,9 @@
 terain textures from:
 - www.artstation.com/yughues
 
+Brick assets from:
+https://assetstore.unity.com/publishers/25975
+
 HealthBar implementation
 - https://www.youtube.com/watch?v=BLfNP4Sc_iA
 
