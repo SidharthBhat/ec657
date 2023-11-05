@@ -279,6 +279,14 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 22.35
       objectReference: {fileID: 0}
+    - target: {fileID: 1487475828273633346, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4033271650101576013}
+    - target: {fileID: 1487475828273633346, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: updateText
+      objectReference: {fileID: 0}
     - target: {fileID: 5120415947130523491, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
       propertyPath: m_Name
       value: HealthBar
@@ -381,6 +389,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6144203414171504476, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
   m_PrefabInstance: {fileID: 5667180070743185865}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4033271650101576013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8745094433435244676, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}
+  m_PrefabInstance: {fileID: 5667180070743185865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a151f15ebc8834f9359d7c945f818b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4317141736286118437 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8452218246564346860, guid: 018ed4e2cad24f549a22144724ddbabd, type: 3}

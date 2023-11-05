@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //fire projectile towards player
     private void AttackPlayer()
     {
         enemy.SetDestination(transform.position);
@@ -120,10 +121,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //reduce enemy hp
     public void TakeDamage(int amount)
     {
-        hitPoints -= amount;
         healthbar.setHealth(hitPoints);
+        hitPoints -= amount;
         if (hitPoints <= 0)
         {
             Die();
@@ -138,6 +140,8 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Drops x number of orbs which gives you xpValue worth of xp in total
+    //orbs drop randomly when enemy dies within a certain range
     private void DropXP(float value)
 	{
         int numberOfXP = Random.Range(1, 5);
@@ -146,22 +150,24 @@ public class Enemy : MonoBehaviour
             float randomRangeX = Random.Range(0.5f,-0.5f);
             float randomRangeY = Random.Range(0.5f, -0.5f);
             float randomRangeZ = Random.Range(0.5f, -0.5f);
-            Vector3 randomPosition = new Vector3(transform.position.x + randomRangeX, transform.position.y + randomRangeY, transform.position.z + randomRangeZ);
+            Vector3 randomPosition = new Vector3(transform.position.x + randomRangeX, 
+                                                 transform.position.y + randomRangeY, 
+                                                 transform.position.z + randomRangeZ);
+
             GameObject XPDrop = Instantiate(eXP, randomPosition, Quaternion.identity);
             XPDrop.GetComponent<ExperienceController>().SetXp(value / numberOfXP);
 		}
 	}
 
-
+    //spawn 2 enemies every time an enemy dies
     void TempEnemy()
     {
         float randomZ = Random.Range(-walkRange, walkRange);
         float randomX = Random.Range(-walkRange, walkRange);
 
         Vector3 spawnLocation = new Vector3(200f +randomX,
-                                5f,
-                                200f +randomZ);
-
+                                            5f,
+                                            200f +randomZ);
         Instantiate(gameObject, spawnLocation, Quaternion.identity);
         Instantiate(gameObject, spawnLocation + Vector3.one *2, Quaternion.identity);
     }

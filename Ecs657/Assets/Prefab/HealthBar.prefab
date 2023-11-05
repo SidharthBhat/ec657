@@ -352,7 +352,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8745094433435244676}
         m_TargetAssemblyTypeName: ShowSliderValue, Assembly-CSharp
         m_MethodName: updateText
         m_Mode: 1

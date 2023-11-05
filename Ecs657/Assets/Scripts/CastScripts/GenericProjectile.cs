@@ -52,7 +52,6 @@ public abstract class GenericProjectile : MonoBehaviour
         {
             StopCoroutine(projEffect());
             Destroy(gameObject);
-
         }
     }
 }

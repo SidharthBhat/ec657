@@ -65,6 +65,7 @@ public class PlayerStats : MonoBehaviour
 		{
             maxHitPoints += hpIncreasePerLevel;
             healthbar.setMaxHealth(maxHitPoints);
+            Heal(maxHitPoints);
             currentExperience -= experienceTillNextLevel;
             experienceTillNextLevel *= experienceNeededMultiplier;
             level++;
