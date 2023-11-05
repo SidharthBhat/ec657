@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cda7b2b4-94de-44e9-9724-46b68861788b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ecs657/Assets/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ecs657/Assets/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ecs657/Assets/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Ecs657/Assets/PlayerInput.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ecs657/Assets/Scenes/Playground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Ecs657/Assets/Scenes/Playground.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ecs657/Assets/Scripts/FlameThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ecs657/Assets/Scripts/FlameThrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ecs657/Assets/Scripts/RayDamage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ecs657/Assets/Scripts/RayDamage.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +25,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

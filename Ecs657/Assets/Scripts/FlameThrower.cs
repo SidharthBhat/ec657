@@ -5,7 +5,10 @@ using UnityEngine;
 public class FlamethrowerController : MonoBehaviour
 {
     public ParticleSystem flameParticles;
-    public int damage = 10;
+    public int damage = 4;
+    public float damageInterval = 0.2f; // The time interval for damage in seconds
+
+    private bool canDamage = true;
 
     void Update()
     {
@@ -28,14 +31,29 @@ public class FlamethrowerController : MonoBehaviour
     {
         flameParticles.Stop();
     }
-    // Detect collisions with the Particle System
-    void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("Particle collided with: " + other.name);
-        if (other.gameObject.GetComponent<Enemy>() != null)
-        {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-        }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        if (canDamage)
+        {
+            // Check if the collided object has an "Enemy" component
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                // Apply damage to the enemy
+                enemy.TakeDamage(damage);
+
+                // Start the damage cooldown coroutine
+                StartCoroutine(DamageCooldown());
+            }
+        }
+    }
+
+    IEnumerator DamageCooldown()
+    {
+        canDamage = false;
+        yield return new WaitForSeconds(damageInterval);
+        canDamage = true;
     }
 }
