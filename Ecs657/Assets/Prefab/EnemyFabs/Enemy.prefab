@@ -152,12 +152,13 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  timer: {fileID: 0}
   waitAtPoint: 10
   walkRange: 50
   attackRange: 20
   sightRange: 40
   projectile: {fileID: 6286544650548570055, guid: c597dc62d8e5923468dc27a52e1d259d, type: 3}
-  projSpeed: 250
+  projSpeed: 200
   attackTiming: 1
   damage: 5
   healthbar: {fileID: 4317141736286118437}

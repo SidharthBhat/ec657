@@ -6,17 +6,18 @@ public class Timer : MonoBehaviour
 {
 
     //static since multiple scripts will use this
-    [SerializeField] private float timeValue = 0;
+    public float timeValue;
     [SerializeField] TextMeshProUGUI label;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeValue = 0;
         label.text = "00:00";
     }
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
         timeValue += Time.deltaTime;
         DisplayTime(timeValue);

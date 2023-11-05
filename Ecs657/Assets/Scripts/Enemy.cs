@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] NavMeshAgent enemy;
     [SerializeField] Transform player;
     [SerializeField] LayerMask groundLayer, playerLayer;
+    [SerializeField] Timer timer;
     //_________________________________________________________//
     //Movement variables
     [SerializeField] float waitAtPoint;
@@ -35,12 +36,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject eXP;
     //_________________________________________________________//
 
+
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        hitPoints = maxHitPoints;
-        healthbar.setMaxHealth(maxHitPoints);
+        timer = GameObject.Find("Timer").GetComponent<Timer>();
         isDead = false;
+        SetStats();
     }
 
     // Update is called once per frame
@@ -154,7 +157,7 @@ public class Enemy : MonoBehaviour
     }
 
     //functions needed when dying
-    void Die()
+    private void Die()
     {
         TempEnemy();
         DropXP(xpValue);
@@ -183,7 +186,7 @@ public class Enemy : MonoBehaviour
     //--------------------------------------------------------//
     #region misc code
     //spawn 2 enemies every time an enemy dies
-    void TempEnemy()
+    private void TempEnemy()
     {
         float randomZ = Random.Range(-walkRange, walkRange);
         float randomX = Random.Range(-walkRange, walkRange);
@@ -195,6 +198,28 @@ public class Enemy : MonoBehaviour
         Instantiate(gameObject, spawnLocation + Vector3.one * 2, Quaternion.identity);
     }
 
+    //For ramping the difficulty of the enemy over time
+    private void SetStats()
+	{
+        float currentTime = timer.timeValue;
+
+        //increase hp every 30 seconds by 5% up to 200% original hp, linear
+        int HPIncrementer = Mathf.CeilToInt(currentTime / 30);
+        float HPMultiplier = 1 + Mathf.Clamp(HPIncrementer / 20, 0f, 2f);
+        maxHitPoints += Mathf.CeilToInt(maxHitPoints * HPMultiplier);
+        hitPoints = maxHitPoints;
+        healthbar.setMaxHealth(maxHitPoints);
+
+        //increase projectile speed ever 60 seconds by 10% up to 30% increase, linear
+        int projectileSpeedIncrementer = Mathf.CeilToInt(currentTime / 60);
+        float projectileSpeedMultiplier = 1 + Mathf.Clamp(projectileSpeedIncrementer / 10, 0f, 0.3f);
+        projSpeed += Mathf.CeilToInt(projSpeed * projectileSpeedMultiplier);
+
+        //increase damage by 1 every minute up to 5, linear
+        int DamageIncrementer = Mathf.CeilToInt(currentTime / 60);
+        DamageIncrementer = (int) Mathf.Clamp(DamageIncrementer, 0f, 5f);
+        damage += DamageIncrementer;
+    }
     //for debugging
     void OnDrawGizmosSelected()
     {
