@@ -489,6 +489,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+--- !u!1 &381140972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3689109211057396739, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+  m_PrefabInstance: {fileID: 1429671067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &673139566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4653,7 +4658,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4706,7 +4711,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4756,7 +4761,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 0
+    minKillSpeed: 100
     maxKillSpeed: 10000
     radiusScale: 1
     collidesWith:
@@ -5732,14 +5737,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745517092}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e5d9e9d2cea0e545bfb26f9fd3ddda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flameParticles: {fileID: 745517095}
   damage: 5
-  damageInterval: 1
+  damageInterval: 0.2
 --- !u!1001 &875969764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5846,14 +5851,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982575753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e5d9e9d2cea0e545bfb26f9fd3ddda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flameParticles: {fileID: 745517095}
   damage: 10
-  damageInterval: 1
+  damageInterval: 0.2
 --- !u!1 &993986556
 GameObject:
   m_ObjectHideFlags: 0
@@ -6572,6 +6577,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2117281527195389131, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2244377461489577114, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: icon
       value: 
@@ -6685,9 +6694,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6629531838818000735, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+      propertyPath: spellList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629531838818000735, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: hotbarList.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6629531838818000735, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+      propertyPath: 'spellList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8195175858217895053}
     - target: {fileID: 6629531838818000735, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: 'hotbarList.Array.data[0]'
       value: 
@@ -6719,7 +6736,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3689109211057396739, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8195175858217895053}
   m_SourcePrefab: {fileID: 100100000, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
 --- !u!114 &1607317888 stripped
 MonoBehaviour:
@@ -9407,7 +9427,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 176913501966324525, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
   m_PrefabInstance: {fileID: 1429671067}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 381140972}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cce298c7a7673044cbf64812a205b920, type: 3}
@@ -9818,12 +9838,44 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8195175857360750610, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
   m_PrefabInstance: {fileID: 1429671067}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 381140972}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a490a2c15de7bc4298a66b5a0f54bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8195175858217895052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2244377461489577114, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
+  m_PrefabInstance: {fileID: 1429671067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381140972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58117e90f7af11f4e97e521f06e2f28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8195175858217895053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381140972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d65652d474a034294dfbccf96432e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 1011f580bff3d994bad1a557782ece52, type: 3}
+  spellName: Flamethrower
+  description: Shoots jet of flame. Continuously burns the enemy.
+  combination:
+  - {fileID: 8195175858217895052}
+  - {fileID: 176913503391276982}
+  flameParticles: {fileID: 745517095}
+  damage: 10
+  damageInterval: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
