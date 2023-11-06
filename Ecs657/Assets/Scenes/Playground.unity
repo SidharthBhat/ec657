@@ -6188,7 +6188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 11590609}
-  bossSpawnTime: 300
+  bossSpawnTime: 120
   timer: {fileID: 0}
   spawnPoint: {fileID: 1095532945}
   bossSpawned: 0
@@ -6366,6 +6366,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
       propertyPath: xpValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+      propertyPath: baseMaxHp
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7694806976863755868, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
@@ -6830,11 +6834,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 271c4a8ef92c0614f8fdc163ee62cd2f, type: 3}
     - target: {fileID: 176913501966324525, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: damage
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 176913501966324525, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: duration
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 176913501966324525, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: interval
@@ -6862,7 +6866,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 239d0a7599956cc46913d0d119fad243, type: 3}
     - target: {fileID: 2244377461489577114, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: damage
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2244377461489577114, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: duration
@@ -7022,7 +7026,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 6d71abcca205f5e4a80fd03a4205d7d0, type: 3}
     - target: {fileID: 8195175857360750610, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: damage
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8195175857360750610, guid: 10d91403edf4f0048aaa674668ef0c1e, type: 3}
       propertyPath: duration
