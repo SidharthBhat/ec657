@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = -9.8f;
     [SerializeField] private float jumpHeigth = 2f;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Vector3 groundCheckDimension = new Vector3(1f, 0.5f, 1f);
+    [SerializeField] private float groundCheckDimension = 2f;
     [SerializeField] private LayerMask groundMask;
     private Vector3 velocity;
     private bool isGrounded;
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     // Allows you to jump when on the ground
     void Jump()
     {
-        isGrounded = Physics.CheckBox(groundCheck.position, groundCheckDimension, Quaternion.identity, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckDimension, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -85,5 +85,14 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
+
+    //for debugging
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckDimension);
+    }
+
+    //--------------------------------------------------------//
 
 }
