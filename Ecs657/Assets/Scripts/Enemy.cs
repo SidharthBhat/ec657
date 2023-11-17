@@ -172,14 +172,12 @@ public class Enemy : MonoBehaviour
         if (isBoss)
         {
             menus.Win();
-            Die();
-        }
-        else 
-        {
-            TempEnemy();
-            DropXP(xpValue);
             Destroy(gameObject);
+            return;
         }
+        TempEnemy();
+        DropXP(xpValue);
+        Destroy(gameObject);
     }
     //Drops x number of orbs which gives you xpValue worth of xp in total
     //orbs drop randomly when enemy dies within a certain range
