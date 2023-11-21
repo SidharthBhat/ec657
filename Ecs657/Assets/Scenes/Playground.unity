@@ -494,6 +494,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+--- !u!114 &630820159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2553500585433003451, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+  m_PrefabInstance: {fileID: 4250900171998500304}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6269b35092a21a44f99f7ae24a4b8e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &673139566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,7 +1070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 11590609}
   bossSpawnTime: 120
-  timer: {fileID: 0}
+  timer: {fileID: 630820159}
   spawnPoint: {fileID: 1095532945}
   bossSpawned: 0
 --- !u!4 &1095532945
@@ -5937,11 +5948,42 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6385838616891012295, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+    - {fileID: 8282736406930089152, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7731616652672688884, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4250900171998500306}
   m_SourcePrefab: {fileID: 100100000, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+--- !u!1 &4250900171998500305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7731616652672688884, guid: c8797849e3c7e9d4cb0885c168623d38, type: 3}
+  m_PrefabInstance: {fileID: 4250900171998500304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4250900171998500306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250900171998500305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4753ef69d058b4d96e6892045aa1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityList:
+  - enemyPrefab: {fileID: 7488566857388697443, guid: aca80fe3a9288d14fbdefdf03828a4e1, type: 3}
+    numberPerSpawn: 1
+    timeBetweenSpawns: 5
+    currentTimer: 0
+  maxRadius: 50
+  minRadius: 40
+  offsetY: -25
+  timer: {fileID: 630820159}
 --- !u!1001 &6858071375371738443
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,9 +12,8 @@ public class Projectile : MonoBehaviour
         damage = amount;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+	private void Start()
+	{
         Invoke(nameof(DestroyProjectile), expiration);
     }
 
