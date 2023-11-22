@@ -17,7 +17,7 @@ public class SpellStack : MonoBehaviour
     public Stack<Spell> XspellStack;
 
     // Start is called before the first frame update
-    void Start()
+    public void WhenToStart()
     {
         spellList = spellListObj.GetComponent<SpellList>().spellList;
     }
@@ -66,14 +66,22 @@ public class SpellStack : MonoBehaviour
         //checks the spellstack for a matching spell
         for (int i = 0; i < stackSpells.Length; i++)
         {
-            if (stackSpells[i] != null)
+            try
             {
-                if (stackSpells[i].spellName.Equals(spell.spellName))
+                if (stackSpells[i].spellName  != null)
                 {
-                    //match found, store index
-                    index = i;
-                    break;
+                    if (stackSpells[i].spellName == spell.spellName)
+                    {
+                        //match found, store index
+                        index = i;
+                        break;
+                    }
                 }
+            }
+            catch (System.Exception)
+            {
+                break;
+                throw;
             }
         }
 
@@ -101,10 +109,19 @@ public class SpellStack : MonoBehaviour
             {
                 stackSlots[i] = stackSlots[i + 1];
                 stackSpells[i] = stackSpells[i + 1];
-                if (stackSpells[i] == null)
+                try
+                {
+                    if (stackSpells[i].spellName == null)
+                    {
+                        break;
+                    }
+                }
+                catch (System.Exception)
                 {
                     break;
+                    throw;
                 }
+                
             }
             //resizes stack
             stackIndex--;
@@ -116,15 +133,24 @@ public class SpellStack : MonoBehaviour
     {
         for (int i = 0; i < stackSpells.Length; i++)
         {
-            if (stackSpells[0] != null)
+            try
             {
-                stackSpells[0].Cast();
-                removeSpell(0);
+                if (stackSpells[0].spellName != null)
+                {
+                    stackSpells[0].Cast();
+                    removeSpell(0);
+                }
+                else
+                {
+                    break;
+                }
             }
-            else
+            catch (System.Exception)
             {
                 break;
+                throw;
             }
+            
         }
     }
 }

@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using OpenCover.Framework.Model;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Spell", menuName = "Spell")]
 public class ScriptableSpell : ScriptableObject
 {
     //projectile game object
-    public Transform projectile;
+    public GameObject projectile;
     
+    //the spell description
+    public string component;
     //the spell description
     public string description;
 
@@ -30,5 +34,5 @@ public class ScriptableSpell : ScriptableObject
     public Sprite image;
 
     // evrey posible combination of other spells requierd to cast a spell
-    public Spell[] combinations = new Spell[0];
+    public ScriptableSpell[] combinations = new ScriptableSpell[0];
 }

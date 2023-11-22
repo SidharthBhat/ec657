@@ -14,13 +14,13 @@ public class HotBarController : MonoBehaviour
     [SerializeField] private SpellStack spellStack;
     [SerializeField] private GameObject grid;
 
-    void Start()
+    public void WhenToStart()
     {
         spells=spellList.GetComponent<SpellList>().hotbarList; //retrieves list of spells for the hotbar from spellList
         //sets all slot icons to spells stored on launch if not blank
         for (int i = 0; i < spells.Length; i++)
         {
-            if (spells[i] != null)
+            if (spells[i].spellName != null)
             {
                 slots[i] = Instantiate(slotFab, grid.transform).GetComponent<SlotController>(); //if the slot has a spell, create a SpellSlot
                 slots[i].SetSpellInit(spells[i]); //assign the new slot its corresponding spell
@@ -32,7 +32,7 @@ public class HotBarController : MonoBehaviour
     public void AddSpell(int slot)
     {
         //add spell to spellstack
-        if (spells[slot] != null)
+        if (spells[slot].spellName != null)
         {
             spellStack.addSpell(spells[slot]);
         }

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ec16fc632608d846859a90339546908, type: 3}
-  m_Name: Fire Ball
+  m_Name: Water Ball
   m_EditorClassIdentifier: 
-  projectile: {fileID: 6689170274625472767, guid: 2f39d646be71e0c48853db002e3d1742, type: 3}
+  projectile: {fileID: 6318832171547529715, guid: 169922a0e0821334c8f6b558a602cc1f, type: 3}
   component: 
-  description: Shoots fireball. Damages and burns enemy.
+  description: Shoots ball of water. Damages and slows enemy.
   projSpeed: 500
   cooldown: 1
-  damage: 7
-  duration: 8
+  damage: 9
+  duration: 10
   interval: 1
-  image: {fileID: 21300000, guid: 271c4a8ef92c0614f8fdc163ee62cd2f, type: 3}
+  image: {fileID: 21300000, guid: 6d71abcca205f5e4a80fd03a4205d7d0, type: 3}
   combinations: []

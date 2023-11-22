@@ -20,15 +20,6 @@ public class tempSpell : MonoBehaviour
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
     }
 
-    //constructor for the spell. passes its attributes are arguments to the base Spell class
-    //this means you can copy-paste this, and sub in the new spell's classname and its attributes
-    //i is the icon, c is the combination recipe, these are both set in the inspector
-    void Awake()
-    {
-        //spellType.image; spellType.combinations;
-        //base(i,"Fire","Shoots fireball. Damages and burns enemy.", spellType.combinations);
-    }
-
     //overrides the abstract cast method in spell for this specific spell's behaviour
     public void Cast()
     {
