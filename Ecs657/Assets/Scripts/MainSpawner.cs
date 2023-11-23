@@ -23,6 +23,9 @@ public class MainSpawner : MonoBehaviour
     {
         SpawnAllEnemies();
     }
+
+#if UNITY_EDITOR
+
     void OnDrawGizmosSelected()
     {
         Handles.color = Color.green;
@@ -30,7 +33,8 @@ public class MainSpawner : MonoBehaviour
         Handles.color = Color.red;
         Handles.DrawWireDisc(transform.position + Vector3.down * offsetY, new Vector3(0, 1, 0), minRadius);
     }
-    #endregion
+#endif
+#endregion
 
     #region SpawningEnemies
     //spawns any possible enemy, given their timer
