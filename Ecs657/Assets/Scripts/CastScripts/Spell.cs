@@ -36,7 +36,6 @@ public class Spell : MonoBehaviour
         GameObject currentprojectile = Instantiate(spellType.projectile, player.transform.position + player.transform.forward, Quaternion.identity);
         currentprojectile.GetComponent<Rigidbody>().AddForce(player.transform.forward * spellType.projSpeed, ForceMode.Impulse);
         currentprojectile.GetComponent<GenericProjectile>().setData(dmg,spellType.duration,spellType.interval);
-
     }
 
     //check combination just gets the spell stack, compares it to it's combination recipe,

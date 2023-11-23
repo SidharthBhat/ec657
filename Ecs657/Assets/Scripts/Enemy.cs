@@ -175,7 +175,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        TempEnemy();
         DropXP(xpValue);
         Destroy(gameObject);
     }
@@ -201,19 +200,6 @@ public class Enemy : MonoBehaviour
     #endregion
     //--------------------------------------------------------//
     #region misc code
-    //spawn 2 enemies every time an enemy dies
-    private void TempEnemy()
-    {
-        float randomZ = Random.Range(-walkRange, walkRange);
-        float randomX = Random.Range(-walkRange, walkRange);
-
-        Vector3 spawnLocation = new Vector3(200f + randomX,
-                                            5f,
-                                            200f + randomZ); 
-        Instantiate(gameObject, spawnLocation, Quaternion.identity);
-        Instantiate(gameObject, spawnLocation + Vector3.one * 2, Quaternion.identity);
-    }
-
     //For ramping the difficulty of the enemy over time
     private void SetStats()
 	{
